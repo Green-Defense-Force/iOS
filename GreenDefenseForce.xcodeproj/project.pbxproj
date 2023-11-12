@@ -20,6 +20,8 @@
 		72ADBDCC2AFDF71A00384D34 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDCB2AFDF71A00384D34 /* StoreViewController.swift */; };
 		72ADBDCE2AFDF72E00384D34 /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDCD2AFDF72E00384D34 /* ProfilViewController.swift */; };
 		72ADBDD02AFDF75300384D34 /* PloggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDCF2AFDF75300384D34 /* PloggingViewController.swift */; };
+		72ADBDD72B008FEA00384D34 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDD62B008FEA00384D34 /* UIViewController+Extension.swift */; };
+		72ADBDDA2B00C7CD00384D34 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDD92B00C7CD00384D34 /* HomeVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		72ADBDCB2AFDF71A00384D34 /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		72ADBDCD2AFDF72E00384D34 /* ProfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
 		72ADBDCF2AFDF75300384D34 /* PloggingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingViewController.swift; sourceTree = "<group>"; };
+		72ADBDD62B008FEA00384D34 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		72ADBDD92B00C7CD00384D34 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 				72ADBDD52AFDF77100384D34 /* Home */,
 				72ADBDD32AFDF76600384D34 /* Store */,
 				72ADBDD22AFDF76200384D34 /* Profile */,
+				72ADBDD82B0090F200384D34 /* Util */,
 				72ADBD962AFCB42D00384D34 /* Assets.xcassets */,
 				72ADBD982AFCB42D00384D34 /* LaunchScreen.storyboard */,
 				72ADBD9B2AFCB42D00384D34 /* Info.plist */,
@@ -175,8 +180,17 @@
 			isa = PBXGroup;
 			children = (
 				72ADBDBD2AFCD32300384D34 /* HomeViewController.swift */,
+				72ADBDD92B00C7CD00384D34 /* HomeVM.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		72ADBDD82B0090F200384D34 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				72ADBDD62B008FEA00384D34 /* UIViewController+Extension.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +323,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72ADBDD72B008FEA00384D34 /* UIViewController+Extension.swift in Sources */,
+				72ADBDDA2B00C7CD00384D34 /* HomeVM.swift in Sources */,
 				72ADBD8E2AFCB42C00384D34 /* AppDelegate.swift in Sources */,
 				72ADBDCA2AFDF71200384D34 /* ChallengeViewController.swift in Sources */,
 				72ADBDCE2AFDF72E00384D34 /* ProfilViewController.swift in Sources */,
