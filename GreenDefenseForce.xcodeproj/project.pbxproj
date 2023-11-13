@@ -21,7 +21,7 @@
 		72ADBDCE2AFDF72E00384D34 /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDCD2AFDF72E00384D34 /* ProfilViewController.swift */; };
 		72ADBDD02AFDF75300384D34 /* PloggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDCF2AFDF75300384D34 /* PloggingViewController.swift */; };
 		72ADBDD72B008FEA00384D34 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDD62B008FEA00384D34 /* UIViewController+Extension.swift */; };
-		72ADBDDA2B00C7CD00384D34 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDD92B00C7CD00384D34 /* HomeVM.swift */; };
+		72ADBDDA2B00C7CD00384D34 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDD92B00C7CD00384D34 /* HomeViewModel.swift */; };
 		72ADBDDF2B01103E00384D34 /* ImageFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDDE2B01103E00384D34 /* ImageFetch.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +61,7 @@
 		72ADBDCD2AFDF72E00384D34 /* ProfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
 		72ADBDCF2AFDF75300384D34 /* PloggingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingViewController.swift; sourceTree = "<group>"; };
 		72ADBDD62B008FEA00384D34 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		72ADBDD92B00C7CD00384D34 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		72ADBDD92B00C7CD00384D34 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		72ADBDDE2B01103E00384D34 /* ImageFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,7 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				72ADBDBD2AFCD32300384D34 /* HomeViewController.swift */,
-				72ADBDD92B00C7CD00384D34 /* HomeVM.swift */,
+				72ADBDD92B00C7CD00384D34 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -327,7 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72ADBDD72B008FEA00384D34 /* UIViewController+Extension.swift in Sources */,
-				72ADBDDA2B00C7CD00384D34 /* HomeVM.swift in Sources */,
+				72ADBDDA2B00C7CD00384D34 /* HomeViewModel.swift in Sources */,
 				72ADBD8E2AFCB42C00384D34 /* AppDelegate.swift in Sources */,
 				72ADBDCA2AFDF71200384D34 /* ChallengeViewController.swift in Sources */,
 				72ADBDCE2AFDF72E00384D34 /* ProfilViewController.swift in Sources */,

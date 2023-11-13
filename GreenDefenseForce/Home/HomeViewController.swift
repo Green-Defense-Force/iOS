@@ -12,11 +12,13 @@ class HomeViewController: UIViewController {
     
     var subscriptions = Set<AnyCancellable>()
     var imageView: UIImageView!
+    var viewModel = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        fetch()
+        bind()
+        viewModel.fetchImage()
     }
     
     func setUI() {
@@ -37,19 +39,15 @@ class HomeViewController: UIViewController {
         ])
     }
     
-    func fetch() {
-        let fetch = ImageFetch()
-        fetch.imageFetch(url: "https://i.pravatar.cc/") { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let image):
+    func bind() {
+        viewModel.$image
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] image in
+                if let loadedImage = image {
                     print("성공")
-                    self?.imageView.image = image
-                case .failure(let error):
-                    print("실패: \(error)")
+                    self?.imageView.image = loadedImage
                 }
             }
-        }
-        .store(in: &subscriptions)
+            .store(in: &subscriptions)
     }
 }
