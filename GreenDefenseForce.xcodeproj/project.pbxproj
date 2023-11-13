@@ -22,6 +22,7 @@
 		72ADBDD02AFDF75300384D34 /* PloggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDCF2AFDF75300384D34 /* PloggingViewController.swift */; };
 		72ADBDD72B008FEA00384D34 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDD62B008FEA00384D34 /* UIViewController+Extension.swift */; };
 		72ADBDDA2B00C7CD00384D34 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDD92B00C7CD00384D34 /* HomeVM.swift */; };
+		72ADBDDF2B01103E00384D34 /* ImageFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDDE2B01103E00384D34 /* ImageFetch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		72ADBDCF2AFDF75300384D34 /* PloggingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingViewController.swift; sourceTree = "<group>"; };
 		72ADBDD62B008FEA00384D34 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		72ADBDD92B00C7CD00384D34 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		72ADBDDE2B01103E00384D34 /* ImageFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				72ADBDD62B008FEA00384D34 /* UIViewController+Extension.swift */,
+				72ADBDDE2B01103E00384D34 /* ImageFetch.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				72ADBDC82AFDDF9300384D34 /* MainTabBarController.swift in Sources */,
 				72ADBDD02AFDF75300384D34 /* PloggingViewController.swift in Sources */,
 				72ADBD902AFCB42C00384D34 /* SceneDelegate.swift in Sources */,
+				72ADBDDF2B01103E00384D34 /* ImageFetch.swift in Sources */,
 				72ADBDBE2AFCD32300384D34 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

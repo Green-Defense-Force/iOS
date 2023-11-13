@@ -10,35 +10,46 @@ import Combine
 
 class HomeViewController: UIViewController {
     
+    var subscriptions = Set<AnyCancellable>()
     var imageView: UIImageView!
-    var cancellable: AnyCancellable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUI()
+        fetch()
+    }
+    
+    func setUI() {
         
-        self.setNavigationBlackTitleWhiteBg(title: "게임")
+        setNavigationBlackTitleWhiteBg(title: "게임")
         nvLeftItem(image: UIImage(systemName: "arrow.left")!, action: #selector(backTappedButton), tintColor: .black)
         
-        imageView = UIImageView(frame: self.view.bounds)
+        imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        self.view.addSubview(imageView)
-
-        if let imageURL = URL(string: "https://i.pravatar.cc/") {
-            cancellable = URLSession.shared.dataTaskPublisher(for: imageURL)
-                .map { UIImage(data: $0.data)}
-                .receive(on: DispatchQueue.main)
-                .sink(receiveCompletion: { completion in
-                    if case .failure(let err) = completion {
-                        print("Retrieval failed: \(err)")
-                    }
-                }, receiveValue: { [weak self] image in
-                    if let image = image {
-                        self?.imageView.image = image
-                    } else {
-                        print("이미지 변환 실패")
-                    }
-                })
+        view.addSubview(imageView)
+        
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: 200),
+            imageView.heightAnchor.constraint(equalToConstant: 200)
+        ])
+    }
+    
+    func fetch() {
+        let fetch = ImageFetch()
+        fetch.imageFetch(url: "https://i.pravatar.cc/") { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let image):
+                    print("성공")
+                    self?.imageView.image = image
+                case .failure(let error):
+                    print("실패: \(error)")
+                }
+            }
         }
+        .store(in: &subscriptions)
     }
 }
-
