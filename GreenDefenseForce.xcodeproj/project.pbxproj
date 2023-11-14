@@ -23,6 +23,7 @@
 		72ADBDD72B008FEA00384D34 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDD62B008FEA00384D34 /* UIViewController+Extension.swift */; };
 		72ADBDDA2B00C7CD00384D34 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDD92B00C7CD00384D34 /* HomeViewModel.swift */; };
 		72ADBDDF2B01103E00384D34 /* ImageFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDDE2B01103E00384D34 /* ImageFetch.swift */; };
+		72BD42F62B030B2A00464475 /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BD42F52B030B2A00464475 /* ImageInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		72ADBDD62B008FEA00384D34 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		72ADBDD92B00C7CD00384D34 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		72ADBDDE2B01103E00384D34 /* ImageFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetch.swift; sourceTree = "<group>"; };
+		72BD42F52B030B2A00464475 /* ImageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			children = (
 				72ADBDD62B008FEA00384D34 /* UIViewController+Extension.swift */,
 				72ADBDDE2B01103E00384D34 /* ImageFetch.swift */,
+				72BD42F52B030B2A00464475 /* ImageInfo.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				72ADBDCA2AFDF71200384D34 /* ChallengeViewController.swift in Sources */,
 				72ADBDCE2AFDF72E00384D34 /* ProfilViewController.swift in Sources */,
 				72ADBDCC2AFDF71A00384D34 /* StoreViewController.swift in Sources */,
+				72BD42F62B030B2A00464475 /* ImageInfo.swift in Sources */,
 				72ADBDC82AFDDF9300384D34 /* MainTabBarController.swift in Sources */,
 				72ADBDD02AFDF75300384D34 /* PloggingViewController.swift in Sources */,
 				72ADBD902AFCB42C00384D34 /* SceneDelegate.swift in Sources */,
@@ -517,6 +521,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -544,6 +549,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
