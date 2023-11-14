@@ -22,16 +22,16 @@ class MainTabBarController: UITabBarController {
         
         self.viewControllers = [challengeNC, ploggingNC, homeNC, storeNC, profilNC]
         
-        let challengeTabBarItem = UITabBarItem(title: "챌린지", image: UIImage(systemName: "flag.2.crossed"), tag: 0)
+        let challengeTabBarItem = UITabBarItem(title: "챌린지", image: UIImage(systemName: "flag.2.crossed")?.withTintColor(.white, renderingMode: .alwaysOriginal), tag: 0)
+        let ploggingTabBarItem = UITabBarItem(title: "플로깅", image: UIImage(systemName: "figure.walk")?.withTintColor(.white, renderingMode: .alwaysOriginal), tag: 1)
+        let homeTabBarItem = UITabBarItem(title: "게임", image: UIImage(systemName: "gamecontroller")?.withTintColor(.white, renderingMode: .alwaysOriginal), tag: 2)
+        let storeTabBarItem = UITabBarItem(title: "스토어", image: UIImage(systemName: "shippingbox")?.withTintColor(.white, renderingMode: .alwaysOriginal), tag: 3)
+        let profilTabBarItem = UITabBarItem(title: "마이페이지", image: UIImage(systemName: "person")?.withTintColor(.white, renderingMode: .alwaysOriginal), tag: 4)
         
-        let ploggingTabBarItem = UITabBarItem(title: "플로깅", image: UIImage(systemName: "shoe"), tag: 1)
-        let homeTabBarItem = UITabBarItem(title: "게임", image: UIImage(systemName: "gamecontroller"), tag: 2)
-        let storeTabBarItem = UITabBarItem(title: "스토어", image: UIImage(systemName: "storefront"), tag: 3)
-        let profilTabBarItem = UITabBarItem(title: "마이페이지", image: UIImage(systemName: "person"), tag: 4)
-        
-        tabBar.tintColor = .white
         tabBar.backgroundColor = .black
-        
+        tabBar.tintColor = .white
+        tabBar.barTintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+               
         
         
         challengeNC.tabBarItem = challengeTabBarItem
