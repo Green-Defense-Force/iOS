@@ -42,14 +42,14 @@ class HomeViewController: UIViewController {
         // 맵
         NSLayoutConstraint.activate([
             imageView[0].centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView[0].centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -70),
+            imageView[0].centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -45),
             imageView[0].widthAnchor.constraint(equalTo: view.widthAnchor),
             imageView[0].heightAnchor.constraint(equalTo: view.heightAnchor)
         ])
         
         // 유저 캐릭터
         NSLayoutConstraint.activate([
-            imageView[1].bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
+            imageView[1].bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80),
             imageView[1].leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             imageView[3].bottomAnchor.constraint(equalTo: imageView[1].bottomAnchor),
             imageView[3].leadingAnchor.constraint(equalTo: imageView[1].leadingAnchor)
@@ -58,7 +58,7 @@ class HomeViewController: UIViewController {
         
         // 몬스터
         NSLayoutConstraint.activate([
-            imageView[2].bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
+            imageView[2].bottomAnchor.constraint(equalTo: imageView[1].bottomAnchor, constant: 50),
             imageView[2].trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
         ])
     }
