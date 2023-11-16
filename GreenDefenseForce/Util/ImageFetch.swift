@@ -8,31 +8,37 @@
 import Combine
 import UIKit
 
-enum ImageFetchError: Error {
-    case invalidURL
-}
 
 final class ImageFetch {
-    func imageFetch(url: String, completion: @escaping (Result<UIImage, Error>) -> Void) -> AnyCancellable {
+    
+    let session: URLSession
+    
+    init(configuration: URLSessionConfiguration) {
+        session = URLSession(configuration: configuration)
+    }
+
+    func imageFetch(url: String) -> AnyPublisher<UIImage, Error>{
         guard let imageURL = URL(string: url) else {
-            completion(.failure(ImageFetchError.invalidURL))
-            return AnyCancellable { }
+            return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
         }
         
-        return URLSession.shared.dataTaskPublisher(for: imageURL)
-            .map(\.data)
-            .compactMap { UIImage(data: $0) }
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { result in
-                switch result {
-                case .failure(let error):
-                    print("Retrieval failed: \(error)")
-                    completion(.failure(error))
-                case .finished:
-                    break
+        return session.dataTaskPublisher(for: imageURL)
+            .tryMap { result -> Data in
+                guard let response = result.response as? HTTPURLResponse,
+                      (200..<300).contains(response.statusCode) 
+                else {
+                    let response = result.response as? HTTPURLResponse
+                    let statusCode = response?.statusCode ?? -1
+                    throw NetworkError.responseError(statusCode: statusCode)
                 }
-            }, receiveValue: { image in
-                completion(.success(image))
-            })
+                return result.data
+            }
+            .compactMap { UIImage(data: $0) }
+            .eraseToAnyPublisher()
     }
+}
+
+enum NetworkError: Error {
+    case invalidURL
+    case responseError(statusCode: Int)
 }
