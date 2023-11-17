@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		720EC7F12B05D07B008C0A1A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720EC7F02B05D07B008C0A1A /* MapViewController.swift */; };
 		72132C5C2B051A0900BB5420 /* JoyStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72132C5B2B051A0900BB5420 /* JoyStick.swift */; };
-		72132C5E2B0521CE00BB5420 /* JoyStickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72132C5D2B0521CE00BB5420 /* JoyStickViewController.swift */; };
+		726493D92B05A22C002DF331 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726493D82B05A22C002DF331 /* HomeViewController.swift */; };
 		72ADBD8E2AFCB42C00384D34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBD8D2AFCB42C00384D34 /* AppDelegate.swift */; };
 		72ADBD902AFCB42C00384D34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBD8F2AFCB42C00384D34 /* SceneDelegate.swift */; };
 		72ADBD972AFCB42D00384D34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72ADBD962AFCB42D00384D34 /* Assets.xcassets */; };
@@ -16,14 +17,14 @@
 		72ADBDA52AFCB42D00384D34 /* GreenDefenseForceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDA42AFCB42D00384D34 /* GreenDefenseForceTests.swift */; };
 		72ADBDAF2AFCB42D00384D34 /* GreenDefenseForceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDAE2AFCB42D00384D34 /* GreenDefenseForceUITests.swift */; };
 		72ADBDB12AFCB42D00384D34 /* GreenDefenseForceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDB02AFCB42D00384D34 /* GreenDefenseForceUITestsLaunchTests.swift */; };
-		72ADBDBE2AFCD32300384D34 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDBD2AFCD32300384D34 /* HomeViewController.swift */; };
+		72ADBDBE2AFCD32300384D34 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDBD2AFCD32300384D34 /* GameViewController.swift */; };
 		72ADBDC82AFDDF9300384D34 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDC72AFDDF9300384D34 /* MainTabBarController.swift */; };
 		72ADBDCA2AFDF71200384D34 /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDC92AFDF71200384D34 /* ChallengeViewController.swift */; };
 		72ADBDCC2AFDF71A00384D34 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDCB2AFDF71A00384D34 /* StoreViewController.swift */; };
 		72ADBDCE2AFDF72E00384D34 /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDCD2AFDF72E00384D34 /* ProfilViewController.swift */; };
 		72ADBDD02AFDF75300384D34 /* PloggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDCF2AFDF75300384D34 /* PloggingViewController.swift */; };
 		72ADBDD72B008FEA00384D34 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDD62B008FEA00384D34 /* UIViewController+Extension.swift */; };
-		72ADBDDA2B00C7CD00384D34 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDD92B00C7CD00384D34 /* HomeViewModel.swift */; };
+		72ADBDDA2B00C7CD00384D34 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDD92B00C7CD00384D34 /* GameViewModel.swift */; };
 		72ADBDDF2B01103E00384D34 /* ImageFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDDE2B01103E00384D34 /* ImageFetch.swift */; };
 		72BD42F62B030B2A00464475 /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BD42F52B030B2A00464475 /* ImageInfo.swift */; };
 /* End PBXBuildFile section */
@@ -46,8 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		720EC7F02B05D07B008C0A1A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		72132C5B2B051A0900BB5420 /* JoyStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyStick.swift; sourceTree = "<group>"; };
-		72132C5D2B0521CE00BB5420 /* JoyStickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyStickViewController.swift; sourceTree = "<group>"; };
+		726493D82B05A22C002DF331 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		72ADBD8A2AFCB42C00384D34 /* GreenDefenseForce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenDefenseForce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72ADBD8D2AFCB42C00384D34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72ADBD8F2AFCB42C00384D34 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,14 +61,14 @@
 		72ADBDAA2AFCB42D00384D34 /* GreenDefenseForceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GreenDefenseForceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72ADBDAE2AFCB42D00384D34 /* GreenDefenseForceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenDefenseForceUITests.swift; sourceTree = "<group>"; };
 		72ADBDB02AFCB42D00384D34 /* GreenDefenseForceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenDefenseForceUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		72ADBDBD2AFCD32300384D34 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		72ADBDBD2AFCD32300384D34 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		72ADBDC72AFDDF9300384D34 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		72ADBDC92AFDF71200384D34 /* ChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 		72ADBDCB2AFDF71A00384D34 /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		72ADBDCD2AFDF72E00384D34 /* ProfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
 		72ADBDCF2AFDF75300384D34 /* PloggingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingViewController.swift; sourceTree = "<group>"; };
 		72ADBDD62B008FEA00384D34 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		72ADBDD92B00C7CD00384D34 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		72ADBDD92B00C7CD00384D34 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		72ADBDDE2B01103E00384D34 /* ImageFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetch.swift; sourceTree = "<group>"; };
 		72BD42F52B030B2A00464475 /* ImageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,7 +126,7 @@
 				72ADBDC72AFDDF9300384D34 /* MainTabBarController.swift */,
 				72ADBDD42AFDF76C00384D34 /* Challenge */,
 				72ADBDD12AFDF75B00384D34 /* Plogging */,
-				72ADBDD52AFDF77100384D34 /* Home */,
+				72ADBDD52AFDF77100384D34 /* Game */,
 				72ADBDD32AFDF76600384D34 /* Store */,
 				72ADBDD22AFDF76200384D34 /* Profile */,
 				72ADBDD82B0090F200384D34 /* Util */,
@@ -184,15 +186,16 @@
 			path = Challenge;
 			sourceTree = "<group>";
 		};
-		72ADBDD52AFDF77100384D34 /* Home */ = {
+		72ADBDD52AFDF77100384D34 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				72ADBDBD2AFCD32300384D34 /* HomeViewController.swift */,
-				72ADBDD92B00C7CD00384D34 /* HomeViewModel.swift */,
+				720EC7F02B05D07B008C0A1A /* MapViewController.swift */,
+				72ADBDBD2AFCD32300384D34 /* GameViewController.swift */,
+				72ADBDD92B00C7CD00384D34 /* GameViewModel.swift */,
 				72132C5B2B051A0900BB5420 /* JoyStick.swift */,
-				72132C5D2B0521CE00BB5420 /* JoyStickViewController.swift */,
+				726493D82B05A22C002DF331 /* HomeViewController.swift */,
 			);
-			path = Home;
+			path = Game;
 			sourceTree = "<group>";
 		};
 		72ADBDD82B0090F200384D34 /* Util */ = {
@@ -336,19 +339,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				72ADBDD72B008FEA00384D34 /* UIViewController+Extension.swift in Sources */,
-				72ADBDDA2B00C7CD00384D34 /* HomeViewModel.swift in Sources */,
+				72ADBDDA2B00C7CD00384D34 /* GameViewModel.swift in Sources */,
 				72ADBD8E2AFCB42C00384D34 /* AppDelegate.swift in Sources */,
 				72ADBDCA2AFDF71200384D34 /* ChallengeViewController.swift in Sources */,
 				72ADBDCE2AFDF72E00384D34 /* ProfilViewController.swift in Sources */,
+				726493D92B05A22C002DF331 /* HomeViewController.swift in Sources */,
 				72ADBDCC2AFDF71A00384D34 /* StoreViewController.swift in Sources */,
-				72132C5E2B0521CE00BB5420 /* JoyStickViewController.swift in Sources */,
 				72BD42F62B030B2A00464475 /* ImageInfo.swift in Sources */,
 				72ADBDC82AFDDF9300384D34 /* MainTabBarController.swift in Sources */,
 				72132C5C2B051A0900BB5420 /* JoyStick.swift in Sources */,
 				72ADBDD02AFDF75300384D34 /* PloggingViewController.swift in Sources */,
 				72ADBD902AFCB42C00384D34 /* SceneDelegate.swift in Sources */,
 				72ADBDDF2B01103E00384D34 /* ImageFetch.swift in Sources */,
-				72ADBDBE2AFCD32300384D34 /* HomeViewController.swift in Sources */,
+				720EC7F12B05D07B008C0A1A /* MapViewController.swift in Sources */,
+				72ADBDBE2AFCD32300384D34 /* GameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,7 +533,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -557,7 +561,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
