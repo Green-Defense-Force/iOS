@@ -19,10 +19,5 @@ extension UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: action)
         navigationItem.leftBarButtonItem?.tintColor = tintColor
     }
-    
-    @objc func backTappedButton() {
-        navigationController?.popViewController(animated: true)
-        print("뒤로가기")
-    }
 }
 
