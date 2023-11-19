@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		720EC7F12B05D07B008C0A1A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720EC7F02B05D07B008C0A1A /* MapViewController.swift */; };
 		72132C5C2B051A0900BB5420 /* JoyStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72132C5B2B051A0900BB5420 /* JoyStick.swift */; };
+		721C33BA2B09BFFE00708F55 /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721C33B92B09BFFE00708F55 /* PopUp.swift */; };
 		726493D92B05A22C002DF331 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726493D82B05A22C002DF331 /* HomeViewController.swift */; };
 		72ADBD8E2AFCB42C00384D34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBD8D2AFCB42C00384D34 /* AppDelegate.swift */; };
 		72ADBD902AFCB42C00384D34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBD8F2AFCB42C00384D34 /* SceneDelegate.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		720EC7F02B05D07B008C0A1A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		72132C5B2B051A0900BB5420 /* JoyStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyStick.swift; sourceTree = "<group>"; };
+		721C33B92B09BFFE00708F55 /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
 		726493D82B05A22C002DF331 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		72ADBD8A2AFCB42C00384D34 /* GreenDefenseForce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenDefenseForce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72ADBD8D2AFCB42C00384D34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				72ADBDD92B00C7CD00384D34 /* GameViewModel.swift */,
 				72132C5B2B051A0900BB5420 /* JoyStick.swift */,
 				726493D82B05A22C002DF331 /* HomeViewController.swift */,
+				721C33B92B09BFFE00708F55 /* PopUp.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				72BD42F62B030B2A00464475 /* ImageInfo.swift in Sources */,
 				72ADBDC82AFDDF9300384D34 /* MainTabBarController.swift in Sources */,
 				72132C5C2B051A0900BB5420 /* JoyStick.swift in Sources */,
+				721C33BA2B09BFFE00708F55 /* PopUp.swift in Sources */,
 				72ADBDD02AFDF75300384D34 /* PloggingViewController.swift in Sources */,
 				72ADBD902AFCB42C00384D34 /* SceneDelegate.swift in Sources */,
 				72ADBDDF2B01103E00384D34 /* ImageFetch.swift in Sources */,
