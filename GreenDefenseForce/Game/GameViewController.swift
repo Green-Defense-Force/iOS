@@ -7,11 +7,19 @@
 import UIKit
 import Combine
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, PopUpDelegate {
+    
     let viewModel = GameViewModel()
     var imageView: [UIImageView] = []
     var subscriptions = Set<AnyCancellable>()
     var alterImage = false
+    var field: UIImageView!
+    var defaultCharacter: UIImageView!
+    var attackCharacter: UIImageView!
+    var monster: UIImageView!
+    var effect: UIImageView!
+    var defaultButton: UIImageView!
+    var buttonTap: UIImageView!
     
     lazy var hpBar: UIProgressView = {
         let hpBar = UIProgressView()
@@ -37,27 +45,13 @@ class GameViewController: UIViewController {
         return hpBar
     }()
     
-    lazy var attackButton: UIButton = {
-       let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("공격", for: .normal)
-        button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.backgroundColor = .red
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 10
-        button.layer.borderWidth = 5
-        button.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
-        button.addTarget(self, action: #selector(attackTap), for: .touchUpInside)
-        return button
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
         bind()
-        viewModel.fetchImage()
+        viewModel.battleFetchImage()
         setupSwipeGesture()
-        view.backgroundColor = UIColor(red: 0.49, green: 0.67, blue: 0.25, alpha: 1.0)
+        attckMonsterTapBtn()
     }
     
     func setUI() {
@@ -66,63 +60,122 @@ class GameViewController: UIViewController {
         setNavigationBlackTitleWhiteBg(title: "")
         // NVLItem
         nvLeftItem(image: UIImage(systemName: "arrow.left")!, action: #selector(backTappedButton), tintColor: .black)
-        // 받아온 이미지 초기화
-        let numberOfImageViews = 10
         
-        imageView = (0...numberOfImageViews).map{ _ in
-            let imageView = UIImageView()
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(imageView)
-            return imageView
-        }
+        field = UIImageView()
+        field.translatesAutoresizingMaskIntoConstraints = false
+        field.contentMode = .scaleAspectFill
+        view.addSubview(field)
+        NSLayoutConstraint.activate([
+            field.topAnchor.constraint(equalTo: view.topAnchor),
+            field.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            field.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            field.leftAnchor.constraint(equalTo: view.leftAnchor),
+        ])
         
         // 유저 캐릭터
-        imageView[1].alpha = 0.0
+        defaultCharacter = UIImageView()
+        defaultCharacter.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(defaultCharacter)
+        
+        attackCharacter = UIImageView()
+        attackCharacter.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(attackCharacter)
+        attackCharacter.alpha = 0.0
         NSLayoutConstraint.activate([
-            imageView[0].widthAnchor.constraint(equalToConstant: 320),
-            imageView[0].heightAnchor.constraint(equalToConstant: 320),
-            imageView[0].bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            imageView[0].leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -40),
+            defaultCharacter.widthAnchor.constraint(equalToConstant: 200),
+            defaultCharacter.heightAnchor.constraint(equalToConstant: 200),
+            defaultCharacter.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
+            defaultCharacter.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
             
-            imageView[1].widthAnchor.constraint(equalTo: imageView[0].widthAnchor),
-            imageView[1].heightAnchor.constraint(equalTo: imageView[0].heightAnchor),
-            imageView[1].bottomAnchor.constraint(equalTo: imageView[0].bottomAnchor),
-            imageView[1].leadingAnchor.constraint(equalTo: imageView[0].leadingAnchor)
+            attackCharacter.widthAnchor.constraint(equalTo: defaultCharacter.widthAnchor),
+            attackCharacter.heightAnchor.constraint(equalTo: defaultCharacter.heightAnchor),
+            attackCharacter.bottomAnchor.constraint(equalTo: defaultCharacter.bottomAnchor),
+            attackCharacter.leadingAnchor.constraint(equalTo: defaultCharacter.leadingAnchor)
             
         ])
         
         // 몬스터
+        monster = UIImageView()
+        monster.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(monster)
         NSLayoutConstraint.activate([
-            imageView[2].centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
-            imageView[2].trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 30),
-            imageView[2].widthAnchor.constraint(equalToConstant: 320),
-            imageView[2].heightAnchor.constraint(equalToConstant: 320),
+            monster.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
+            monster.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            monster.widthAnchor.constraint(equalToConstant: 200),
+            monster.heightAnchor.constraint(equalToConstant: 200),
         ])
         
         // Hp
         view.addSubview(hpBar)
         NSLayoutConstraint.activate([
             hpBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            hpBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
             hpBar.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
             hpBar.heightAnchor.constraint(equalToConstant: 40)
         ])
         
-        // 공격버튼
-        view.addSubview(attackButton)
+        // 버튼 기본상태
+        defaultButton = UIImageView()
+        defaultButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(defaultButton)
         NSLayoutConstraint.activate([
-            attackButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 120),
-            attackButton.centerYAnchor.constraint(equalTo: imageView[1].centerYAnchor),
-            attackButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3),
-            attackButton.heightAnchor.constraint(equalToConstant: 80)
+            defaultButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            defaultButton.bottomAnchor.constraint(equalTo: defaultCharacter.bottomAnchor),
+            defaultButton.widthAnchor.constraint(equalToConstant: 100),
+            defaultButton.heightAnchor.constraint(equalToConstant: 100)
+        ])
+        
+        // 눌린 버튼
+        buttonTap = UIImageView()
+        buttonTap.alpha = 0
+        buttonTap.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(buttonTap)
+        NSLayoutConstraint.activate([
+            buttonTap.topAnchor.constraint(equalTo: defaultButton.topAnchor),
+            buttonTap.trailingAnchor.constraint(equalTo: defaultButton.trailingAnchor),
+            buttonTap.bottomAnchor.constraint(equalTo: defaultButton.bottomAnchor),
+            buttonTap.widthAnchor.constraint(equalTo: defaultButton.widthAnchor),
+            buttonTap.heightAnchor.constraint(equalTo: defaultButton.heightAnchor)
+        ])
+        
+        effect = UIImageView()
+        effect.alpha = 0
+        effect.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(effect)
+        NSLayoutConstraint.activate([
+            effect.topAnchor.constraint(equalTo: monster.topAnchor),
+            effect.bottomAnchor.constraint(equalTo: monster.bottomAnchor),
+            effect.trailingAnchor.constraint(equalTo: monster.trailingAnchor),
+            effect.widthAnchor.constraint(equalTo: monster.widthAnchor, multiplier: 1),
+            effect.heightAnchor.constraint(equalTo: monster.heightAnchor, multiplier: 1)
+            
         ])
     }
     
     func bind() {
-        viewModel.$image
+        viewModel.$battleImage
             .receive(on: DispatchQueue.main)
             .sink { [weak self] images in
                 for (index, image) in images.enumerated() {
-                    self?.imageView[index].image = image
+                    switch index {
+                    case 0:
+                        self?.field.image = image
+                    case 1:
+                        self?.defaultCharacter.image = image
+                    case 2:
+                        self?.attackCharacter.image = image
+                    case 3:
+                        self?.monster.image = image
+                    case 4:
+                        self?.effect.image = image
+                    case 5:
+                        self?.defaultButton.image = image
+                    case 6:
+                        self?.buttonTap.image = image
+                    default:
+                        break
+                    }
                 }
             }
             .store(in: &subscriptions)
@@ -135,15 +188,27 @@ class GameViewController: UIViewController {
         view.addGestureRecognizer(swipeGuesture)
     }
     
+    func attckMonsterTapBtn() {
+        let attackTap = UITapGestureRecognizer(target: self, action: #selector(attackTap))
+        defaultButton.isUserInteractionEnabled = true
+        defaultButton.addGestureRecognizer(attackTap)
+    }
+    
     @objc func attackTap() {
         alterImage.toggle()
         
         UIView.animate(withDuration:0, animations:  {
-            self.imageView[0].alpha = self.alterImage ? 0.0 : 1.0
-            self.imageView[1].alpha = self.alterImage ? 1.0 : 0.0
+            self.defaultCharacter.alpha = self.alterImage ? 0.0 : 1.0
+            self.attackCharacter.alpha = self.alterImage ? 1.0 : 0.0
+            self.defaultButton.alpha = self.alterImage ? 0.0 : 1.0
+            self.buttonTap.alpha = self.alterImage ? 1.0 : 0.0
+            self.effect.alpha = self.alterImage ? 1.0 : 0.0
         }) {_ in
-            self.imageView[0].alpha = 1
-            self.imageView[1].alpha = 0
+            self.defaultCharacter.alpha = 1
+            self.attackCharacter.alpha = 0
+            self.effect.alpha = 0
+            self.defaultButton.alpha = 1
+            self.buttonTap.alpha = 0
             self.alterImage = false
             self.damgeHpTap()
         }
@@ -155,9 +220,26 @@ class GameViewController: UIViewController {
             currentProgress -= 0.1
         }
         hpBar.setProgress(currentProgress, animated: true)
+        
+        if currentProgress == 0 {
+            showPopUp()
+        }
     }
     
+    func returnToMap() {
+        let mapVC = MapViewController()
+        navigationController?.pushViewController(mapVC, animated: true)
+    }
+
     @objc func backTappedButton() {
         navigationController?.popViewController(animated: false)
+    }
+    
+    @objc func showPopUp() {
+        let popUpViewController = PopUp()
+        popUpViewController.modalPresentationStyle = .overCurrentContext
+        popUpViewController.modalTransitionStyle = .crossDissolve
+        popUpViewController.delegate = self
+        present(popUpViewController, animated: true, completion: nil)
     }
 }
