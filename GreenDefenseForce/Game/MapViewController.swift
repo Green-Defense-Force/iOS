@@ -22,7 +22,9 @@ class MapViewController: UIViewController, JoystickDelegate {
     var downWalk2: UIImageView!
     var left1: UIImageView!
     var left2: UIImageView!
-    var mapMonsterImageView: UIImageView!
+    var mapMonster: UIImageView!
+    var field: UIImageView!
+    var ticket: UIImageView!
     var viewModel = GameViewModel()
     var subscriptions = Set<AnyCancellable>()
     
@@ -36,7 +38,7 @@ class MapViewController: UIViewController, JoystickDelegate {
         super.viewDidLoad()
         setUI()
         bind()
-        viewModel.fetchImage()
+        viewModel.fieldFetchImage()
         setupSwipeGesture()
         view.backgroundColor = UIColor(red: 0.49, green: 0.67, blue: 0.25, alpha: 1.0)
     }
@@ -45,16 +47,16 @@ class MapViewController: UIViewController, JoystickDelegate {
         
         nvLeftItem(image: UIImage(systemName: "arrow.left")!, action: #selector(backTappedButton), tintColor: .black)
         
-        // 받아온 이미지 초기화
-        let numberOfImageViews = 10
+        // 필드
+        field = UIImageView()
+        field.translatesAutoresizingMaskIntoConstraints = false
+        field.contentMode = .scaleAspectFill
+        view.addSubview(field)
+        NSLayoutConstraint.activate([
+            field.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1),
+            field.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1)
+        ])
         
-        imageView = (0...numberOfImageViews).map{ _ in
-            let imageView = UIImageView()
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            imageView.contentMode = .scaleAspectFit
-            view.addSubview(imageView)
-            return imageView
-        }
         
         // 조이스틱 유저 캐릭터
         front = UIImageView()
@@ -173,26 +175,37 @@ class MapViewController: UIViewController, JoystickDelegate {
         ])
         
         // 몬스터
-        mapMonsterImageView = UIImageView()
-        mapMonsterImageView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(mapMonsterImageView)
+        mapMonster = UIImageView()
+        mapMonster.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(mapMonster)
         
         NSLayoutConstraint.activate([
-            mapMonsterImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            mapMonsterImageView.topAnchor.constraint(equalTo: front.topAnchor),
-            mapMonsterImageView.widthAnchor.constraint(equalToConstant: 50),
-            mapMonsterImageView.heightAnchor.constraint(equalToConstant: 50)
+            mapMonster.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            mapMonster.topAnchor.constraint(equalTo: front.topAnchor),
+            mapMonster.widthAnchor.constraint(equalToConstant: 50),
+            mapMonster.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        ticket = UIImageView()
+        ticket.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(ticket)
+        NSLayoutConstraint.activate([
+            ticket.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            ticket.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            ticket.widthAnchor.constraint(equalToConstant: 50),
+            ticket.heightAnchor.constraint(equalToConstant: 30),
+            
         ])
     }
     
     func bind() {
-        viewModel.$image
+        viewModel.$fieldImage
             .receive(on: DispatchQueue.main)
             .sink { [weak self] images in
                 for (index, image) in images.enumerated() {
                     switch index {
                     case 0:
-                        self?.mapMonsterImageView.image = image
+                        self?.mapMonster.image = image
                     case 1:
                         self?.front.image = image
                     case 2:
@@ -213,6 +226,10 @@ class MapViewController: UIViewController, JoystickDelegate {
                         self?.left1.image = image
                     case 10:
                         self?.left2.image = image
+                    case 11:
+                        self?.ticket.image = image
+                    case 12:
+                        self?.field.image = image
                     default:
                         break
                     }
@@ -282,7 +299,7 @@ class MapViewController: UIViewController, JoystickDelegate {
     
     func joystickReleased() {
         // 여기에서 캐릭터 움직임이 멈췄을 때 필요한 작업을 수행합니다.
-        if front.frame.intersects(mapMonsterImageView.frame) {
+        if front.frame.intersects(mapMonster.frame) {
             // 이미지뷰가 만났을 때 수행할 액션
             gameViewController = GameViewController()
             navigationController?.pushViewController(gameViewController, animated: true)
@@ -297,7 +314,7 @@ class MapViewController: UIViewController, JoystickDelegate {
     }
     
     @objc func backTappedButton() {
-        navigationController?.popViewController(animated: false)
+        navigationController?.popViewController(animated: true)
     }
 }
 
