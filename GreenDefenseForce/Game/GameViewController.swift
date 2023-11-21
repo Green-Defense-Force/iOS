@@ -21,7 +21,7 @@ class GameViewController: UIViewController, PopUpDelegate {
     var defaultButton: UIImageView!
     var buttonTap: UIImageView!
     
-    lazy var hpBar: UIProgressView = {
+    var hpBar: UIProgressView = {
         let hpBar = UIProgressView()
         hpBar.translatesAutoresizingMaskIntoConstraints = false
         hpBar.progressTintColor = .red
@@ -227,8 +227,7 @@ class GameViewController: UIViewController, PopUpDelegate {
     }
     
     func returnToMap() {
-        let mapVC = MapViewController()
-        navigationController?.pushViewController(mapVC, animated: true)
+        navigationController?.popViewController(animated: false)
     }
 
     @objc func backTappedButton() {
