@@ -10,6 +10,7 @@
 		720EC7F12B05D07B008C0A1A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720EC7F02B05D07B008C0A1A /* MapViewController.swift */; };
 		72132C5C2B051A0900BB5420 /* JoyStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72132C5B2B051A0900BB5420 /* JoyStick.swift */; };
 		721C33BA2B09BFFE00708F55 /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721C33B92B09BFFE00708F55 /* PopUp.swift */; };
+		7247A02B2B0B59B900323598 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7247A02A2B0B59B900323598 /* MapModel.swift */; };
 		726493D92B05A22C002DF331 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726493D82B05A22C002DF331 /* HomeViewController.swift */; };
 		72ADBD8E2AFCB42C00384D34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBD8D2AFCB42C00384D34 /* AppDelegate.swift */; };
 		72ADBD902AFCB42C00384D34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBD8F2AFCB42C00384D34 /* SceneDelegate.swift */; };
@@ -51,6 +52,7 @@
 		720EC7F02B05D07B008C0A1A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		72132C5B2B051A0900BB5420 /* JoyStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyStick.swift; sourceTree = "<group>"; };
 		721C33B92B09BFFE00708F55 /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
+		7247A02A2B0B59B900323598 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		726493D82B05A22C002DF331 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		72ADBD8A2AFCB42C00384D34 /* GreenDefenseForce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenDefenseForce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72ADBD8D2AFCB42C00384D34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7247A02C2B0B7B6A00323598 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7247A02A2B0B59B900323598 /* MapModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		72ADBD812AFCB42C00384D34 = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +139,7 @@
 				72ADBDD42AFDF76C00384D34 /* Challenge */,
 				72ADBDD12AFDF75B00384D34 /* Plogging */,
 				72ADBDD52AFDF77100384D34 /* Game */,
+				7247A02C2B0B7B6A00323598 /* Model */,
 				72ADBDD32AFDF76600384D34 /* Store */,
 				72ADBDD22AFDF76200384D34 /* Profile */,
 				72ADBDD82B0090F200384D34 /* Util */,
@@ -351,6 +362,7 @@
 				72BD42F62B030B2A00464475 /* ImageInfo.swift in Sources */,
 				72ADBDC82AFDDF9300384D34 /* MainTabBarController.swift in Sources */,
 				72132C5C2B051A0900BB5420 /* JoyStick.swift in Sources */,
+				7247A02B2B0B59B900323598 /* MapModel.swift in Sources */,
 				721C33BA2B09BFFE00708F55 /* PopUp.swift in Sources */,
 				72ADBDD02AFDF75300384D34 /* PloggingViewController.swift in Sources */,
 				72ADBD902AFCB42C00384D34 /* SceneDelegate.swift in Sources */,
