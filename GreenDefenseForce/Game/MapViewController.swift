@@ -9,8 +9,12 @@ import UIKit
 import Combine
 
 class MapViewController: UIViewController, JoystickDelegate {
+    
     var gameViewController: GameViewController!
     var joystickView: JoystickView!
+    var viewModel = GameViewModel()
+    var subscriptions = Set<AnyCancellable>()
+    var mapModel: MapModel = MapModel(ticketNum: 3, coinNum: 5, mapMonsters: [], character: [], userName: "꼼꼼재", userLevel: 1)
     var imageView: [UIImageView] = []
     var front: UIImageView!
     var back: UIImageView!
@@ -22,11 +26,57 @@ class MapViewController: UIViewController, JoystickDelegate {
     var downWalk2: UIImageView!
     var left1: UIImageView!
     var left2: UIImageView!
-    var mapMonster: UIImageView!
     var field: UIImageView!
     var ticket: UIImageView!
-    var viewModel = GameViewModel()
-    var subscriptions = Set<AnyCancellable>()
+    var coin: UIImageView!
+    lazy var ticketLabel: UILabel = {
+        let label = UILabel()
+        var ticketNum = mapModel.ticketNum
+        label.text = String(ticketNum)
+        label.textColor = .black
+        label.font = UIFont.boldSystemFont(ofSize: 25)
+        return label
+    }()
+    lazy var coinLabel: UILabel = {
+        let label = UILabel()
+        var coinNum = mapModel.coinNum
+        label.text = String(coinNum)
+        label.textColor = .black
+        label.font = UIFont.boldSystemFont(ofSize: 25)
+        return label
+    }()
+    lazy var userName: UIView = {
+       let userNameBox = UIView()
+        userNameBox.backgroundColor = .white
+        userNameBox.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
+        userNameBox.layer.borderWidth = 5
+        userNameBox.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(userNameBox)
+        
+        let userName = UILabel()
+        userName.textColor = .black
+        userName.text = mapModel.userName
+        userName.translatesAutoresizingMaskIntoConstraints = false
+        userName.centerXAnchor.constraint(equalTo: userNameBox.centerXAnchor).isActive = true
+        userName.centerYAnchor.constraint(equalTo: userNameBox.centerYAnchor).isActive = true
+        userNameBox.addSubview(userName)
+        
+        let userLevel = UILabel()
+        userLevel.textColor = .black
+        userLevel.text = mapModel.userName
+        userLevel.translatesAutoresizingMaskIntoConstraints = false
+        userLevel.topAnchor.constraint(equalTo: userName.topAnchor).isActive = true
+        userLevel.trailingAnchor.constraint(equalTo: userName.leadingAnchor, constant: -10).isActive = true
+        userNameBox.addSubview(userLevel)
+        
+        NSLayoutConstraint.activate([
+            userName.topAnchor.constraint(equalTo: front.bottomAnchor, constant: 10),
+            userName.widthAnchor.constraint(equalToConstant: 70),
+            userName.heightAnchor.constraint(equalToConstant: 30)
+        ])
+        
+        return userNameBox
+    }()
     
     private var shouldShowRight1Flag = false
     private var shouldShowLeft1Flag = false
@@ -44,7 +94,7 @@ class MapViewController: UIViewController, JoystickDelegate {
     }
     
     func setUI() {
-        
+       
         nvLeftItem(image: UIImage(systemName: "arrow.left")!, action: #selector(backTappedButton), tintColor: .black)
         
         // 필드
@@ -62,51 +112,6 @@ class MapViewController: UIViewController, JoystickDelegate {
         front = UIImageView()
         front.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(front)
-        
-        back = UIImageView()
-        back.translatesAutoresizingMaskIntoConstraints = false
-        back.alpha = 0
-        view.addSubview(back)
-        
-        right1 = UIImageView()
-        right1.translatesAutoresizingMaskIntoConstraints = false
-        right1.alpha = 0
-        view.addSubview(right1)
-        
-        right2 = UIImageView()
-        right2.translatesAutoresizingMaskIntoConstraints = false
-        right2.alpha = 0
-        view.addSubview(right2)
-        
-        downWalk1 = UIImageView()
-        downWalk1.translatesAutoresizingMaskIntoConstraints = false
-        downWalk1.alpha = 0
-        view.addSubview(downWalk1)
-        
-        downWalk2 = UIImageView()
-        downWalk2.translatesAutoresizingMaskIntoConstraints = false
-        downWalk2.alpha = 0
-        view.addSubview(downWalk2)
-        
-        left1 = UIImageView()
-        left1.translatesAutoresizingMaskIntoConstraints = false
-        left1.alpha = 0
-        view.addSubview(left1)
-        
-        left2 = UIImageView()
-        left2.translatesAutoresizingMaskIntoConstraints = false
-        left2.alpha = 0
-        view.addSubview(left2)
-        
-        upWalk1 = UIImageView()
-        upWalk1.translatesAutoresizingMaskIntoConstraints = false
-        upWalk1.alpha = 0
-        view.addSubview(upWalk1)
-        
-        upWalk2 = UIImageView()
-        upWalk2.translatesAutoresizingMaskIntoConstraints = false
-        upWalk2.alpha = 0
-        view.addSubview(upWalk2)
         
         // 조이스틱 움직임
         joystickView = JoystickView(frame: CGRect(x: 50, y: 200, width: 150, height: 150))
@@ -127,75 +132,81 @@ class MapViewController: UIViewController, JoystickDelegate {
             front.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             front.widthAnchor.constraint(equalToConstant: 35),
             front.heightAnchor.constraint(equalToConstant: 50),
-            
-            back.topAnchor.constraint(equalTo: front.topAnchor),
-            back.widthAnchor.constraint(equalTo: front.widthAnchor),
-            back.heightAnchor.constraint(equalTo: front.heightAnchor),
-            back.leadingAnchor.constraint(equalTo: front.leadingAnchor),
-            
-            upWalk1.topAnchor.constraint(equalTo: front.topAnchor),
-            upWalk1.widthAnchor.constraint(equalTo: front.widthAnchor),
-            upWalk1.heightAnchor.constraint(equalTo: front.heightAnchor),
-            upWalk1.leadingAnchor.constraint(equalTo: front.leadingAnchor),
-            
-            upWalk2.topAnchor.constraint(equalTo: front.topAnchor),
-            upWalk2.widthAnchor.constraint(equalTo: front.widthAnchor),
-            upWalk2.heightAnchor.constraint(equalTo: front.heightAnchor),
-            upWalk2.leadingAnchor.constraint(equalTo: front.leadingAnchor),
-            
-            right1.topAnchor.constraint(equalTo: front.topAnchor),
-            right1.widthAnchor.constraint(equalTo: front.widthAnchor),
-            right1.heightAnchor.constraint(equalTo: front.heightAnchor),
-            right1.leadingAnchor.constraint(equalTo: front.leadingAnchor),
-            
-            right2.topAnchor.constraint(equalTo: front.topAnchor),
-            right2.widthAnchor.constraint(equalTo: front.widthAnchor),
-            right2.heightAnchor.constraint(equalTo: front.heightAnchor),
-            right2.leadingAnchor.constraint(equalTo: front.leadingAnchor),
-            
-            downWalk1.topAnchor.constraint(equalTo: front.topAnchor),
-            downWalk1.widthAnchor.constraint(equalTo: front.widthAnchor),
-            downWalk1.heightAnchor.constraint(equalTo: front.heightAnchor),
-            downWalk1.leadingAnchor.constraint(equalTo: front.leadingAnchor),
-            
-            downWalk2.topAnchor.constraint(equalTo: front.topAnchor),
-            downWalk2.widthAnchor.constraint(equalTo: front.widthAnchor),
-            downWalk2.heightAnchor.constraint(equalTo: front.heightAnchor),
-            downWalk2.leadingAnchor.constraint(equalTo: front.leadingAnchor),
-            
-            left1.topAnchor.constraint(equalTo: front.topAnchor),
-            left1.widthAnchor.constraint(equalTo: front.widthAnchor),
-            left1.heightAnchor.constraint(equalTo: front.heightAnchor),
-            left1.leadingAnchor.constraint(equalTo: front.leadingAnchor),
-            
-            left2.topAnchor.constraint(equalTo: front.topAnchor),
-            left2.widthAnchor.constraint(equalTo: front.widthAnchor),
-            left2.heightAnchor.constraint(equalTo: front.heightAnchor),
-            left2.leadingAnchor.constraint(equalTo: front.leadingAnchor),
         ])
-        
-        // 몬스터
-        mapMonster = UIImageView()
-        mapMonster.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(mapMonster)
-        
-        NSLayoutConstraint.activate([
-            mapMonster.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            mapMonster.topAnchor.constraint(equalTo: front.topAnchor),
-            mapMonster.widthAnchor.constraint(equalToConstant: 50),
-            mapMonster.heightAnchor.constraint(equalToConstant: 50)
-        ])
-        
+
+        back = UIImageView()
+        view.addSubview(back)
+
+        right1 = UIImageView()
+        view.addSubview(right1)
+
+        right2 = UIImageView()
+        view.addSubview(right2)
+
+        downWalk1 = UIImageView()
+        view.addSubview(downWalk1)
+
+        downWalk2 = UIImageView()
+        view.addSubview(downWalk2)
+
+        left1 = UIImageView()
+        view.addSubview(left1)
+
+        left2 = UIImageView()
+        view.addSubview(left2)
+
+        upWalk1 = UIImageView()
+        view.addSubview(upWalk1)
+
+        upWalk2 = UIImageView()
+        view.addSubview(upWalk2)
+
+        setCharacterImage(image: back, referenceImageView: front)
+        setCharacterImage(image: upWalk1, referenceImageView: front)
+        setCharacterImage(image: upWalk2, referenceImageView: front)
+        setCharacterImage(image: right1, referenceImageView: front)
+        setCharacterImage(image: right2, referenceImageView: front)
+        setCharacterImage(image: downWalk1, referenceImageView: front)
+        setCharacterImage(image: downWalk2, referenceImageView: front)
+        setCharacterImage(image: left1, referenceImageView: front)
+        setCharacterImage(image: left2, referenceImageView: front)
+
         ticket = UIImageView()
         ticket.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(ticket)
         NSLayoutConstraint.activate([
             ticket.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
-            ticket.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            ticket.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -120),
             ticket.widthAnchor.constraint(equalToConstant: 50),
             ticket.heightAnchor.constraint(equalToConstant: 30),
-            
         ])
+        
+        ticketLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(ticketLabel)
+        NSLayoutConstraint.activate([
+            ticketLabel.topAnchor.constraint(equalTo: ticket.topAnchor),
+            ticketLabel.leadingAnchor.constraint(equalTo: ticket.trailingAnchor, constant: 5),
+        ])
+        
+        coin = UIImageView()
+        coin.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(coin)
+        NSLayoutConstraint.activate([
+            coin.topAnchor.constraint(equalTo: ticket.topAnchor),
+            coin.leadingAnchor.constraint(equalTo: ticketLabel.trailingAnchor, constant: 5),
+            coin.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            coin.widthAnchor.constraint(equalTo: ticket.widthAnchor, multiplier: 1),
+            coin.heightAnchor.constraint(equalTo: ticket.heightAnchor, multiplier: 1)
+        ])
+        
+        coinLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(coinLabel)
+        NSLayoutConstraint.activate([
+            coinLabel.topAnchor.constraint(equalTo: coin.topAnchor),
+            coinLabel.leadingAnchor.constraint(equalTo: coin.trailingAnchor, constant: 5),
+        ])
+        
+        setMonster()
     }
     
     func bind() {
@@ -205,7 +216,7 @@ class MapViewController: UIViewController, JoystickDelegate {
                 for (index, image) in images.enumerated() {
                     switch index {
                     case 0:
-                        self?.mapMonster.image = image
+                        self?.mapModel.mapMonsters.forEach { $0.image = image }
                     case 1:
                         self?.front.image = image
                     case 2:
@@ -230,12 +241,47 @@ class MapViewController: UIViewController, JoystickDelegate {
                         self?.ticket.image = image
                     case 12:
                         self?.field.image = image
+                    case 13:
+                        self?.coin.image = image
                     default:
                         break
                     }
                 }
             }
             .store(in: &subscriptions)
+    }
+    
+    func setCharacterImage(image: UIImageView, referenceImageView: UIImageView) {
+        image.alpha = 0
+        image.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            image.topAnchor.constraint(equalTo: referenceImageView.topAnchor),
+            image.widthAnchor.constraint(equalTo: referenceImageView.widthAnchor),
+            image.heightAnchor.constraint(equalTo: referenceImageView.heightAnchor),
+            image.leadingAnchor.constraint(equalTo: referenceImageView.leadingAnchor),
+        ])
+    }
+    
+    func setMonster() {
+        let monsterCount = 5 // 원하는 몬스터 수
+
+        for _ in 1...monsterCount {
+            let mapMonster = UIImageView()
+            mapMonster.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(mapMonster)
+
+            let randomTop = CGFloat.random(in: 0...(view.bounds.height - 50))
+            let randomLeading = CGFloat.random(in: 0...(view.bounds.width - 50))
+
+            NSLayoutConstraint.activate([
+                mapMonster.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: randomLeading),
+                mapMonster.topAnchor.constraint(equalTo: view.topAnchor, constant: randomTop),
+                mapMonster.widthAnchor.constraint(equalToConstant: 50),
+                mapMonster.heightAnchor.constraint(equalToConstant: 50)
+            ])
+
+            mapModel.mapMonsters.append(mapMonster)
+        }
     }
     
     func joystickMoved(x: CGFloat, y: CGFloat) {
@@ -261,35 +307,30 @@ class MapViewController: UIViewController, JoystickDelegate {
         imageViews.forEach { $0?.alpha = 0 }
         
         // 조이스틱의 방향에 따라 적절한 이미지뷰를 표시
-        if x > 0 && y < 0{
+        func updateAlphaWithToggle(flag: inout Bool, imageView1: UIImageView, imageView2: UIImageView) {
+            flag.toggle()
+            imageView1.alpha = flag ? 1 : 0
+            imageView2.alpha = flag ? 0 : 1
+        }
+        
+        if x > 0 && y < 0 {
             // 조이스틱이 오른쪽으로 갈 때
-            shouldShowRight1Flag.toggle()
-            right1.alpha = shouldShowRight1Flag ? 1 : 0
-            right2.alpha = shouldShowRight1Flag ? 0 : 1
-            
+            updateAlphaWithToggle(flag: &shouldShowRight1Flag, imageView1: right1, imageView2: right2)
         }
         
         if x < 0 && y > 0 {
             // 조이스틱이 왼쪽으로 갈 때
-            shouldShowLeft1Flag.toggle()
-            left1.alpha = shouldShowLeft1Flag ? 1 : 0
-            left2.alpha = shouldShowLeft1Flag ? 0 : 1
-            
+            updateAlphaWithToggle(flag: &shouldShowLeft1Flag, imageView1: left1, imageView2: left2)
         }
         
         if x > 0 && y >= 0 {
             // 조이스틱이 아래로 갈 때
-            shouldShowDown1Flag.toggle()
-            downWalk1.alpha = shouldShowDown1Flag ? 1 : 0
-            downWalk2.alpha = shouldShowDown1Flag ? 0 : 1
-            
+            updateAlphaWithToggle(flag: &shouldShowDown1Flag, imageView1: downWalk1, imageView2: downWalk2)
         }
         
         if x <= 0 && y < 0 {
             // 조이스틱이 위로 갈 때
-            shouldShowUp1Flag.toggle()
-            upWalk1.alpha = shouldShowUp1Flag ? 1 : 0
-            upWalk2.alpha = shouldShowUp1Flag ? 0 : 1
+            updateAlphaWithToggle(flag: &shouldShowUp1Flag, imageView1: upWalk1, imageView2: upWalk2)
         }
         
         if x == 0 && y == 0 {
@@ -298,9 +339,16 @@ class MapViewController: UIViewController, JoystickDelegate {
     }
     
     func joystickReleased() {
-        // 여기에서 캐릭터 움직임이 멈췄을 때 필요한 작업을 수행합니다.
-        if front.frame.intersects(mapMonster.frame) {
-            // 이미지뷰가 만났을 때 수행할 액션
+        // 현재 캐릭터 이미지뷰의 프레임과 교차하는 몬스터 이미지뷰를 찾음
+        if let intersectedMonster = mapModel.mapMonsters.first(where: { front.frame.intersects($0.frame) }) {
+            // 찾은 몬스터 이미지뷰를 배열에서 제거하고 화면에서 제거
+            if let index = mapModel.mapMonsters.firstIndex(of: intersectedMonster) {
+                mapModel.mapMonsters.remove(at: index)
+                intersectedMonster.removeFromSuperview()
+            }
+            
+            // 여기에서 캐릭터 움직임이 멈췄을 때 필요한 작업을 수행합니다.
+            // 예: 게임 뷰 컨트롤러를 푸시
             gameViewController = GameViewController()
             navigationController?.pushViewController(gameViewController, animated: true)
         }
@@ -314,7 +362,7 @@ class MapViewController: UIViewController, JoystickDelegate {
     }
     
     @objc func backTappedButton() {
-        navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: false)
     }
 }
 
