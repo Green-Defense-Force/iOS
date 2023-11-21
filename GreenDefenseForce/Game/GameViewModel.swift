@@ -31,7 +31,8 @@ class GameViewModel {
             "https://github.com/leewanjae/imageAPI_Test/blob/main/image/left1.png?raw=true", // 왼쪽으로 걷기1
             "https://github.com/leewanjae/imageAPI_Test/blob/main/image/left2.png?raw=true", // 왼쪽으로 걷기2
             "https://github.com/leewanjae/imageAPI_Test/blob/main/image/pointTicket.png?raw=true", // 티켓
-            "https://github.com/leewanjae/imageAPI_Test/blob/main/image/field1.png?raw=true" // 필드 맵
+            "https://github.com/leewanjae/imageAPI_Test/blob/main/image/field1.png?raw=true", // 필드 맵
+            "https://github.com/leewanjae/imageAPI_Test/blob/main/image/coin.png?raw=true" // 코인
         ]
         
         let publishers = fieldImageURLs.enumerated().map { (index, url) in
