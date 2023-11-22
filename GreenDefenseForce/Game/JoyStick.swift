@@ -11,9 +11,14 @@ class JoystickView: UIView {
     
     private let stickView = UIView()
     private var joystickRadius: CGFloat = 0.0
-    
-    // 추가: 델리게이트
+    private var joystickImageView: UIImageView!
     weak var delegate: JoystickDelegate?
+
+    var joystickImage: UIImage? {
+            didSet {
+                joystickImageView.image = joystickImage
+            }
+        }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,13 +45,12 @@ class JoystickView: UIView {
         addSubview(stickView)
         
         // Pan Gesture Recognizer 추가
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         addGestureRecognizer(panGesture)
     }
     
-    @objc private func handlePan(_ gesture: UIPanGestureRecognizer) {
+    @objc private func handlePan(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: self)
-        let magnitude = sqrt(pow(translation.x, 2) + pow(translation.y, 2))
         
         // Joystick의 중심에서 팬 제스처로 이동한 거리를 반지름으로 나누어 정규화
         let normalizedX = min(max(translation.x / joystickRadius, -1.0), 1.0)
@@ -60,10 +64,9 @@ class JoystickView: UIView {
         
         // 팬 제스처가 종료되면 Stick을 중앙으로 되돌리기
         if gesture.state == .ended {
-            resetStick()
-            
-            // 추가: 델리게이트에게 움직임이 멈췄음을 알림
             delegate?.joystickReleased()
+            
+            resetStick()
         }
     }
     
