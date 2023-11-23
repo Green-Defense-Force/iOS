@@ -40,7 +40,7 @@ class HomeViewController: UIViewController {
     
     @objc func playGameTap() {
         let mapViewController = MapViewController()
-        navigationController?.pushViewController(mapViewController, animated: true)
+        navigationController?.pushViewController(mapViewController, animated: false)
         self.tabBarController?.tabBar.isHidden = true
     }
     
