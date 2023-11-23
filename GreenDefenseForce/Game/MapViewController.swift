@@ -26,6 +26,7 @@ class MapViewController: UIViewController, JoystickDelegate {
     var left1: UIImageView!
     var left2: UIImageView!
     var field: UIImageView!
+    var dropCoins: [UIImageView] = []
     
     lazy var ticketLabel: UILabel = {
         let label = UILabel()
@@ -196,6 +197,20 @@ class MapViewController: UIViewController, JoystickDelegate {
             coinLabel.topAnchor.constraint(equalTo: coin.topAnchor),
             coinLabel.leadingAnchor.constraint(equalTo: coin.trailingAnchor, constant: 5),
         ])
+        
+        let dropCoin = UIImageView(image: UIImage(named: "coin"))
+        dropCoin.translatesAutoresizingMaskIntoConstraints = false
+        let randomTop = CGFloat.random(in: 0...(view.bounds.height - 150))
+        let randomLeading = CGFloat.random(in: 0...(view.bounds.width - 150))
+        view.addSubview(dropCoin)
+        NSLayoutConstraint.activate([
+            dropCoin.widthAnchor.constraint(equalToConstant: 20),
+            dropCoin.heightAnchor.constraint(equalToConstant: 20),
+            dropCoin.topAnchor.constraint(equalTo: view.topAnchor, constant: randomTop),
+            dropCoin.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: randomLeading)
+        ])
+       dropCoins.append(dropCoin)
+        
     }
     
     func bind() {
@@ -250,8 +265,8 @@ class MapViewController: UIViewController, JoystickDelegate {
             return
         }
         
-        let randomTop = CGFloat.random(in: 0...(view.bounds.height - 50))
-        let randomLeading = CGFloat.random(in: 0...(view.bounds.width - 50))
+        let randomTop = CGFloat.random(in: 0...(view.bounds.height - 150))
+        let randomLeading = CGFloat.random(in: 0...(view.bounds.width - 150))
         
         
         for monster in mapModel.mapMonsters {
@@ -261,7 +276,7 @@ class MapViewController: UIViewController, JoystickDelegate {
                 monsterImageView.translatesAutoresizingMaskIntoConstraints = false
                 self.view.addSubview(monsterImageView)
                 NSLayoutConstraint.activate([
-                    monsterImageView.widthAnchor.constraint(equalToConstant: 35),
+                    monsterImageView.widthAnchor.constraint(equalToConstant: 50),
                     monsterImageView.heightAnchor.constraint(equalToConstant: 50),
                     monsterImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: randomTop),
                     monsterImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: randomLeading)
@@ -323,6 +338,7 @@ class MapViewController: UIViewController, JoystickDelegate {
         if x == 0 && y == 0 {
             back.alpha = 1
         }
+        getDropCoin()
     }
     
     func joystickReleased() {
@@ -336,9 +352,24 @@ class MapViewController: UIViewController, JoystickDelegate {
                 firstMapModel?.mapMonsters.remove(at: index)
                 viewModel.mapModels[0] = firstMapModel!
             }
-            
+
             gameViewController = GameViewController()
             navigationController?.pushViewController(gameViewController, animated: false)
+        }
+    }
+    
+    func getDropCoin() {
+        if let coinNum = Int(coinLabel.text ?? "0") {
+            for dropCoin in dropCoins {
+                if front.frame.intersects(dropCoin.frame) {
+                    dropCoin.removeFromSuperview()
+                    coinLabel.text = "\(coinNum + 1)"
+                    if let index = dropCoins.firstIndex(of: dropCoin) {
+                        dropCoins.remove(at: index)
+                    }
+                    break
+                }
+            }
         }
     }
     
