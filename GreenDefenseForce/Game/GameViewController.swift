@@ -2,15 +2,14 @@
 //  GreenDefenseForce
 //
 //  Created by 이완재 on 11/9/23.
-//
+
 
 import UIKit
 import Combine
 
 class GameViewController: UIViewController, PopUpDelegate {
     
-    let viewModel = GameViewModel()
-    var imageView: [UIImageView] = []
+    var viewModel = GameViewModel()
     var subscriptions = Set<AnyCancellable>()
     var alterImage = false
     var field: UIImageView!
@@ -18,38 +17,52 @@ class GameViewController: UIViewController, PopUpDelegate {
     var attackCharacter: UIImageView!
     var monster: UIImageView!
     var effect: UIImageView!
-    var defaultButton: UIImageView!
-    var buttonTap: UIImageView!
-    
-    var hpBar: UIProgressView = {
+    let defaultButton = UIImageView(image: UIImage(named: "button"))
+    let buttonTap = UIImageView(image: UIImage(named: "buttonTap"))
+
+    lazy var hpBar: UIProgressView = {
         let hpBar = UIProgressView()
         hpBar.translatesAutoresizingMaskIntoConstraints = false
         hpBar.progressTintColor = .red
         hpBar.progressViewStyle = .default
         hpBar.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
         hpBar.layer.borderWidth = 5
-        hpBar.progress = 1
-        
+        return hpBar
+    }()
+    lazy var monsterName: UILabel = {
         let label = UILabel()
-        label.text = "쓰레기 봉투: LV1"
         label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 40, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         hpBar.addSubview(label)
         
         NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: hpBar.leadingAnchor),
-            label.topAnchor.constraint(equalTo: hpBar.topAnchor, constant: -30)
+            
+            label.centerXAnchor.constraint(equalTo: hpBar.centerXAnchor),
+            label.bottomAnchor.constraint(equalTo: hpBar.topAnchor, constant: -5)
         ])
-        
-        return hpBar
+        return label
     }()
+    lazy var monsterTitle: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 30, weight: .medium)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        hpBar.addSubview(label)
+        
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: monsterName.topAnchor, constant: -30),
+            label.centerXAnchor.constraint(equalTo: hpBar.centerXAnchor)
+        ])
+        return label
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
         bind()
-        viewModel.battleFetchImage()
+        viewModel.fetch()
         setupSwipeGesture()
         attckMonsterTapBtn()
     }
@@ -115,7 +128,7 @@ class GameViewController: UIViewController, PopUpDelegate {
         ])
         
         // 버튼 기본상태
-        defaultButton = UIImageView()
+        
         defaultButton.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(defaultButton)
@@ -127,7 +140,6 @@ class GameViewController: UIViewController, PopUpDelegate {
         ])
         
         // 눌린 버튼
-        buttonTap = UIImageView()
         buttonTap.alpha = 0
         buttonTap.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(buttonTap)
@@ -154,28 +166,41 @@ class GameViewController: UIViewController, PopUpDelegate {
     }
     
     func bind() {
-        viewModel.$battleImage
+        viewModel.$gameModels
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] images in
-                for (index, image) in images.enumerated() {
-                    switch index {
-                    case 0:
+            .sink { [weak self] gameModels in
+                guard let model = gameModels.first else {
+                    return
+                }
+                if !gameModels.isEmpty {
+                    
+                    if let imageData = Data(base64Encoded: model.battleField),
+                       let image = UIImage(data: imageData) {
                         self?.field.image = image
-                    case 1:
-                        self?.defaultCharacter.image = image
-                    case 2:
-                        self?.attackCharacter.image = image
-                    case 3:
-                        self?.monster.image = image
-                    case 4:
-                        self?.effect.image = image
-                    case 5:
-                        self?.defaultButton.image = image
-                    case 6:
-                        self?.buttonTap.image = image
-                    default:
-                        break
                     }
+                    
+                    if let imageData = Data(base64Encoded: model.attackImages[0]),
+                       let image = UIImage(data: imageData) {
+                        self?.defaultCharacter.image = image
+                    }
+                    
+                    if let imageData = Data(base64Encoded: model.attackImages[1]),
+                       let image = UIImage(data: imageData) {
+                        self?.attackCharacter.image = image
+                    }
+                    
+                    if let imageData = Data(base64Encoded: model.monsterImage),
+                       let image = UIImage(data: imageData) {
+                        self?.monster.image = image
+                    }
+                    
+                    if let imageData = Data(base64Encoded: model.attackEffect),
+                       let image = UIImage(data: imageData) {
+                        self?.effect.image = image
+                    }
+                    self?.hpBar.progress = Float(model.monsterHp)
+                    self?.monsterName.text = model.monsterName
+                    self?.monsterTitle.text = model.monsterTitle
                 }
             }
             .store(in: &subscriptions)
@@ -229,7 +254,7 @@ class GameViewController: UIViewController, PopUpDelegate {
     func returnToMap() {
         navigationController?.popViewController(animated: false)
     }
-
+    
     @objc func backTappedButton() {
         navigationController?.popViewController(animated: false)
     }

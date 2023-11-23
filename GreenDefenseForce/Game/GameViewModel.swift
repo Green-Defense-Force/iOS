@@ -1,89 +1,57 @@
 //
-//  HomeVM.swift
+//  GameViewModel.swift
 //  GreenDefenseForce
 //
-//  Created by 이완재 on 11/12/23.
+//  Created by 이완재 on 11/22/23.
 //
 
-import UIKit
+import Foundation
 import Combine
 
-class GameViewModel {
+final class GameViewModel {
     
     private var subscriptions = Set<AnyCancellable>()
-    private let imageFetcher = ImageFetch(configuration: .default)
-    var isAlterImage = false
+    private let networkService = NetworkService(configuration: .default)
     
-    @Published var fieldImage: [UIImage] = []
-    @Published var battleImage: [UIImage] = []
+    @Published var gameModels: [GameModel] = []
     
-    func fieldFetchImage() {
-        let fieldImageURLs = [
-            "https://github.com/leewanjae/imageAPI_Test/blob/main/image/monster1.png?raw=true", // 필드 몬스터
-            "https://github.com/leewanjae/imageAPI_Test/blob/main/image/front.png?raw=true", // 앞
-            "https://github.com/leewanjae/imageAPI_Test/blob/main/image/back.png?raw=true",  // 뒤
-            "https://github.com/leewanjae/imageAPI_Test/blob/main/image/up1.png?raw=true", // 위로 걷기1
-            "https://github.com/leewanjae/imageAPI_Test/blob/main/image/up2.png?raw=true", // 위로 걷기2
-            "https://github.com/leewanjae/imageAPI_Test/blob/main/image/right1.png?raw=true", // 오른쪽으로 걷기1
-            "https://github.com/leewanjae/imageAPI_Test/blob/main/image/right2.png?raw=true", // 오른쪽으로 걷기2
-            "https://github.com/leewanjae/imageAPI_Test/blob/main/image/down1.png?raw=true", // 아래로 걷기1
-            "https://github.com/leewanjae/imageAPI_Test/blob/main/image/down2.png?raw=true", // 아래로 걷기2
-            "https://github.com/leewanjae/imageAPI_Test/blob/main/image/left1.png?raw=true", // 왼쪽으로 걷기1
-            "https://github.com/leewanjae/imageAPI_Test/blob/main/image/left2.png?raw=true", // 왼쪽으로 걷기2
-            "https://github.com/leewanjae/imageAPI_Test/blob/main/image/pointTicket.png?raw=true", // 티켓
-            "https://github.com/leewanjae/imageAPI_Test/blob/main/image/field1.png?raw=true", // 필드 맵
-            "https://github.com/leewanjae/imageAPI_Test/blob/main/image/coin.png?raw=true" // 코인
-        ]
-        
-        let publishers = fieldImageURLs.enumerated().map { (index, url) in
-            imageFetcher.imageFetch(url: url)
-                .map { ImageInfo(index: index, image: $0)}
-        }
-        Publishers.MergeMany(publishers)
-            .collect()
-            .map { $0.sorted(by: { $0.index < $1.index }).map { $0.image } }
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    print("finished")
-                case .failure(let error):
-                    print("error:\(error)")
-                }
-            }, receiveValue: { image in
-                self.fieldImage = image
-                print(image)
-            })
-            .store(in: &subscriptions)
-    }
-    
-    func battleFetchImage() {
-        let battleImageURLs = [
+    func fetch() {
+        let gameModelURLs = [
             "https://github.com/leewanjae/imageAPI_Test/blob/main/image/battlefield1.jpg?raw=true", // 배틀 필드
             "https://github.com/leewanjae/imageAPI_Test/blob/main/image/battleCharacter1.png?raw=true",// 캐릭터 공격 전
             "https://github.com/leewanjae/imageAPI_Test/blob/main/image/battleCharacter2.png?raw=true", // 캐릭터 공격
             "https://github.com/leewanjae/imageAPI_Test/blob/main/image/monster1.png?raw=true", // 몬스터
             "https://github.com/leewanjae/imageAPI_Test/blob/main/image/Effect1.png?raw=true", // 이펙트
-            "https://github.com/leewanjae/imageAPI_Test/blob/main/image/button.png?raw=true", // 버튼 눌리기 전
-            "https://github.com/leewanjae/imageAPI_Test/blob/main/image/buttonTap.png?raw=true", // 눌린 버튼
         ]
-        let publishers = battleImageURLs.enumerated().map { (index, url) in
-            imageFetcher.imageFetch(url: url)
-                .map {ImageInfo(index: index, image: $0)}
-        }
-        Publishers.MergeMany(publishers)
+        
+        gameModelURLs.publisher
+            .flatMap(maxPublishers: .max(1)) { url in
+                self.networkService.imageFetch(url: url) { (data:Data) -> String? in
+                    return data.base64EncodedString()
+                }
+            }
             .collect()
-            .map { $0.sorted(by: { $0.index < $1.index }).map { $0.image } }
-            .sink(receiveCompletion: { completion in
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
                 switch completion {
                 case .finished:
-                    print("finished")
+                    print("gameVM finished")
                 case .failure(let error):
-                    print("error:\(error)")
+                    print("gameVM error: \(error)")
                 }
-            }, receiveValue: { image in
-                self.battleImage = image
-                print(image)
-            })
+            } receiveValue: { [weak self] strings in
+
+                let battleField = strings[0]
+                let characterImageBeforeAttack = strings[1]
+                let characterImageDuringAttack = strings[2]
+                let monsterImage = strings[3]
+                let effectImage = strings[4]
+                
+                let attackImages = [characterImageBeforeAttack, characterImageDuringAttack]
+                print("여기:",battleField, characterImageBeforeAttack, characterImageDuringAttack, monsterImage, effectImage)
+                self?.gameModels = [GameModel(userId: "0", attackImages: attackImages, attackEffect: effectImage, monsterId: "0", monsterTitle: "한강의", monsterName: "쓰레기 봉지", monsterImage: monsterImage, monsterHp: 100, battleField: battleField)]
+            }
             .store(in: &subscriptions)
     }
 }
+
