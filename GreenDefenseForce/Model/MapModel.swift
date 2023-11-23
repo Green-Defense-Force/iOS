@@ -7,11 +7,18 @@
 
 import UIKit
 
-struct MapModel  {
+struct MapModel: Codable  {
     var ticketNum: Int
     var coinNum: Int
-    var mapMonsters: [UIImageView]
-    var character: [UIImageView]
+    var mapMonsters: [MonsterPreview]
+    var character: [String]
     var userName: String
     var userLevel: Int
+    var field: String
+}
+
+
+struct MonsterPreview: Codable {
+    var monsterId: String
+    var monsterImage: String
 }

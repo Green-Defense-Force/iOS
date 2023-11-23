@@ -9,31 +9,34 @@ import Combine
 import UIKit
 
 
-final class ImageFetch {
+final class NetworkService {
     
     let session: URLSession
     
     init(configuration: URLSessionConfiguration) {
         session = URLSession(configuration: configuration)
     }
-
-    func imageFetch(url: String) -> AnyPublisher<UIImage, Error>{
+    
+    func imageFetch<T>(url: String, transformer: @escaping (Data) -> T?) -> AnyPublisher<T, Error>{
         guard let imageURL = URL(string: url) else {
             return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
         }
         
         return session.dataTaskPublisher(for: imageURL)
-            .tryMap { result -> Data in
+            .tryMap { result -> T in
                 guard let response = result.response as? HTTPURLResponse,
-                      (200..<300).contains(response.statusCode) 
+                      (200..<300).contains(response.statusCode)
                 else {
                     let response = result.response as? HTTPURLResponse
                     let statusCode = response?.statusCode ?? -1
                     throw NetworkError.responseError(statusCode: statusCode)
                 }
-                return result.data
+                guard let transformedData = transformer(result.data) else {
+                    throw NetworkError.dataTransformationError
+                }
+                
+                return transformedData
             }
-            .compactMap { UIImage(data: $0) }
             .eraseToAnyPublisher()
     }
 }
@@ -41,4 +44,5 @@ final class ImageFetch {
 enum NetworkError: Error {
     case invalidURL
     case responseError(statusCode: Int)
+    case dataTransformationError
 }
