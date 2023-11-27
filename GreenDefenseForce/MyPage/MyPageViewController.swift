@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfilViewController: UIViewController {
+class MyPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
