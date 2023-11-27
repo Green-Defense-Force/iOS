@@ -64,7 +64,7 @@ class MapViewModel {
                 
                 let monsterPreview = MonsterPreview(monsterId: "0", monsterImage: monsterImage)
                 
-                self?.mapModels = [MapModel(ticketNum: 0, coinNum: 0, mapMonsters: [monsterPreview], character: characterImages, userName: "", userLevel: 0, field: fieldImage)]
+                self?.mapModels = [MapModel(ticketNum: 3, coinNum: 5, mapMonsters: [monsterPreview], character: characterImages, userName: "", userLevel: 0, field: fieldImage)]
             })
             .store(in: &subscriptions)
     }

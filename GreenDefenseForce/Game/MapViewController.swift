@@ -46,7 +46,6 @@ class MapViewController: UIViewController, JoystickDelegate {
         userNameBox.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
         userNameBox.layer.borderWidth = 5
         userNameBox.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(userNameBox)
         return userNameBox
     }()
     
@@ -163,6 +162,10 @@ class MapViewController: UIViewController, JoystickDelegate {
         setCharacterImage(image: left1, referenceImageView: front)
         setCharacterImage(image: left2, referenceImageView: front)
         
+        //
+        view.addSubview(userNameBox)
+
+        
         let ticket = UIImageView(image: UIImage(named: "pointTicket"))
         ticket.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(ticket)
@@ -210,7 +213,6 @@ class MapViewController: UIViewController, JoystickDelegate {
             dropCoin.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: randomLeading)
         ])
        dropCoins.append(dropCoin)
-        
     }
     
     func bind() {
@@ -352,7 +354,11 @@ class MapViewController: UIViewController, JoystickDelegate {
                 firstMapModel?.mapMonsters.remove(at: index)
                 viewModel.mapModels[0] = firstMapModel!
             }
-
+            
+            if let ticketNum = Int(ticketLabel.text ?? "0") {
+                ticketLabel.text = "\(ticketNum - 1)"
+            }
+            
             gameViewController = GameViewController()
             navigationController?.pushViewController(gameViewController, animated: false)
         }
