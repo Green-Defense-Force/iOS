@@ -11,7 +11,11 @@
 		72132C5C2B051A0900BB5420 /* JoyStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72132C5B2B051A0900BB5420 /* JoyStick.swift */; };
 		721C33BA2B09BFFE00708F55 /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721C33B92B09BFFE00708F55 /* PopUp.swift */; };
 		7247A02B2B0B59B900323598 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7247A02A2B0B59B900323598 /* MapModel.swift */; };
+		7247A0372B0E066500323598 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7247A0362B0E066500323598 /* GameModel.swift */; };
+		7247A0392B0E2BD100323598 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7247A0382B0E2BD100323598 /* GameViewModel.swift */; };
 		726493D92B05A22C002DF331 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726493D82B05A22C002DF331 /* HomeViewController.swift */; };
+		729994DB2B144D500036DA1A /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729994DA2B144D500036DA1A /* CustomTabBarViewController.swift */; };
+		729994DD2B144DAC0036DA1A /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729994DC2B144DAC0036DA1A /* CustomTabBar.swift */; };
 		72ADBD8E2AFCB42C00384D34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBD8D2AFCB42C00384D34 /* AppDelegate.swift */; };
 		72ADBD902AFCB42C00384D34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBD8F2AFCB42C00384D34 /* SceneDelegate.swift */; };
 		72ADBD972AFCB42D00384D34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72ADBD962AFCB42D00384D34 /* Assets.xcassets */; };
@@ -23,12 +27,12 @@
 		72ADBDC82AFDDF9300384D34 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDC72AFDDF9300384D34 /* MainTabBarController.swift */; };
 		72ADBDCA2AFDF71200384D34 /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDC92AFDF71200384D34 /* ChallengeViewController.swift */; };
 		72ADBDCC2AFDF71A00384D34 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDCB2AFDF71A00384D34 /* StoreViewController.swift */; };
-		72ADBDCE2AFDF72E00384D34 /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDCD2AFDF72E00384D34 /* ProfilViewController.swift */; };
+		72ADBDCE2AFDF72E00384D34 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDCD2AFDF72E00384D34 /* MyPageViewController.swift */; };
 		72ADBDD02AFDF75300384D34 /* PloggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDCF2AFDF75300384D34 /* PloggingViewController.swift */; };
 		72ADBDD72B008FEA00384D34 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDD62B008FEA00384D34 /* UIViewController+Extension.swift */; };
-		72ADBDDA2B00C7CD00384D34 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDD92B00C7CD00384D34 /* GameViewModel.swift */; };
-		72ADBDDF2B01103E00384D34 /* ImageFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDDE2B01103E00384D34 /* ImageFetch.swift */; };
-		72BD42F62B030B2A00464475 /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BD42F52B030B2A00464475 /* ImageInfo.swift */; };
+		72ADBDDA2B00C7CD00384D34 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDD92B00C7CD00384D34 /* MapViewModel.swift */; };
+		72ADBDDF2B01103E00384D34 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDDE2B01103E00384D34 /* NetworkService.swift */; };
+		72BC41BA2B106F0C00F40F65 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BC41B92B106F0C00F40F65 /* InventoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +57,11 @@
 		72132C5B2B051A0900BB5420 /* JoyStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyStick.swift; sourceTree = "<group>"; };
 		721C33B92B09BFFE00708F55 /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
 		7247A02A2B0B59B900323598 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
+		7247A0362B0E066500323598 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		7247A0382B0E2BD100323598 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		726493D82B05A22C002DF331 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		729994DA2B144D500036DA1A /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
+		729994DC2B144DAC0036DA1A /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		72ADBD8A2AFCB42C00384D34 /* GreenDefenseForce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenDefenseForce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72ADBD8D2AFCB42C00384D34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72ADBD8F2AFCB42C00384D34 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,12 +77,12 @@
 		72ADBDC72AFDDF9300384D34 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		72ADBDC92AFDF71200384D34 /* ChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 		72ADBDCB2AFDF71A00384D34 /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
-		72ADBDCD2AFDF72E00384D34 /* ProfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
+		72ADBDCD2AFDF72E00384D34 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		72ADBDCF2AFDF75300384D34 /* PloggingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingViewController.swift; sourceTree = "<group>"; };
 		72ADBDD62B008FEA00384D34 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		72ADBDD92B00C7CD00384D34 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
-		72ADBDDE2B01103E00384D34 /* ImageFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetch.swift; sourceTree = "<group>"; };
-		72BD42F52B030B2A00464475 /* ImageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInfo.swift; sourceTree = "<group>"; };
+		72ADBDD92B00C7CD00384D34 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		72ADBDDE2B01103E00384D34 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		72BC41B92B106F0C00F40F65 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				7247A02A2B0B59B900323598 /* MapModel.swift */,
+				7247A0362B0E066500323598 /* GameModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -136,12 +145,15 @@
 				72ADBD8D2AFCB42C00384D34 /* AppDelegate.swift */,
 				72ADBD8F2AFCB42C00384D34 /* SceneDelegate.swift */,
 				72ADBDC72AFDDF9300384D34 /* MainTabBarController.swift */,
+				729994DA2B144D500036DA1A /* CustomTabBarViewController.swift */,
+				729994DC2B144DAC0036DA1A /* CustomTabBar.swift */,
 				72ADBDD42AFDF76C00384D34 /* Challenge */,
 				72ADBDD12AFDF75B00384D34 /* Plogging */,
 				72ADBDD52AFDF77100384D34 /* Game */,
 				7247A02C2B0B7B6A00323598 /* Model */,
+				72BC41BB2B106F1000F40F65 /* Inventory */,
 				72ADBDD32AFDF76600384D34 /* Store */,
-				72ADBDD22AFDF76200384D34 /* Profile */,
+				72ADBDD22AFDF76200384D34 /* MyPage */,
 				72ADBDD82B0090F200384D34 /* Util */,
 				72ADBD962AFCB42D00384D34 /* Assets.xcassets */,
 				72ADBD982AFCB42D00384D34 /* LaunchScreen.storyboard */,
@@ -175,12 +187,12 @@
 			path = Plogging;
 			sourceTree = "<group>";
 		};
-		72ADBDD22AFDF76200384D34 /* Profile */ = {
+		72ADBDD22AFDF76200384D34 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				72ADBDCD2AFDF72E00384D34 /* ProfilViewController.swift */,
+				72ADBDCD2AFDF72E00384D34 /* MyPageViewController.swift */,
 			);
-			path = Profile;
+			path = MyPage;
 			sourceTree = "<group>";
 		};
 		72ADBDD32AFDF76600384D34 /* Store */ = {
@@ -204,7 +216,8 @@
 			children = (
 				720EC7F02B05D07B008C0A1A /* MapViewController.swift */,
 				72ADBDBD2AFCD32300384D34 /* GameViewController.swift */,
-				72ADBDD92B00C7CD00384D34 /* GameViewModel.swift */,
+				72ADBDD92B00C7CD00384D34 /* MapViewModel.swift */,
+				7247A0382B0E2BD100323598 /* GameViewModel.swift */,
 				72132C5B2B051A0900BB5420 /* JoyStick.swift */,
 				726493D82B05A22C002DF331 /* HomeViewController.swift */,
 				721C33B92B09BFFE00708F55 /* PopUp.swift */,
@@ -216,10 +229,17 @@
 			isa = PBXGroup;
 			children = (
 				72ADBDD62B008FEA00384D34 /* UIViewController+Extension.swift */,
-				72ADBDDE2B01103E00384D34 /* ImageFetch.swift */,
-				72BD42F52B030B2A00464475 /* ImageInfo.swift */,
+				72ADBDDE2B01103E00384D34 /* NetworkService.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		72BC41BB2B106F1000F40F65 /* Inventory */ = {
+			isa = PBXGroup;
+			children = (
+				72BC41B92B106F0C00F40F65 /* InventoryViewController.swift */,
+			);
+			path = Inventory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,23 +372,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7247A0392B0E2BD100323598 /* GameViewModel.swift in Sources */,
 				72ADBDD72B008FEA00384D34 /* UIViewController+Extension.swift in Sources */,
-				72ADBDDA2B00C7CD00384D34 /* GameViewModel.swift in Sources */,
+				72ADBDDA2B00C7CD00384D34 /* MapViewModel.swift in Sources */,
 				72ADBD8E2AFCB42C00384D34 /* AppDelegate.swift in Sources */,
 				72ADBDCA2AFDF71200384D34 /* ChallengeViewController.swift in Sources */,
-				72ADBDCE2AFDF72E00384D34 /* ProfilViewController.swift in Sources */,
+				72ADBDCE2AFDF72E00384D34 /* MyPageViewController.swift in Sources */,
+				729994DB2B144D500036DA1A /* CustomTabBarViewController.swift in Sources */,
 				726493D92B05A22C002DF331 /* HomeViewController.swift in Sources */,
 				72ADBDCC2AFDF71A00384D34 /* StoreViewController.swift in Sources */,
-				72BD42F62B030B2A00464475 /* ImageInfo.swift in Sources */,
 				72ADBDC82AFDDF9300384D34 /* MainTabBarController.swift in Sources */,
 				72132C5C2B051A0900BB5420 /* JoyStick.swift in Sources */,
 				7247A02B2B0B59B900323598 /* MapModel.swift in Sources */,
 				721C33BA2B09BFFE00708F55 /* PopUp.swift in Sources */,
 				72ADBDD02AFDF75300384D34 /* PloggingViewController.swift in Sources */,
+				72BC41BA2B106F0C00F40F65 /* InventoryViewController.swift in Sources */,
 				72ADBD902AFCB42C00384D34 /* SceneDelegate.swift in Sources */,
-				72ADBDDF2B01103E00384D34 /* ImageFetch.swift in Sources */,
+				729994DD2B144DAC0036DA1A /* CustomTabBar.swift in Sources */,
+				72ADBDDF2B01103E00384D34 /* NetworkService.swift in Sources */,
 				720EC7F12B05D07B008C0A1A /* MapViewController.swift in Sources */,
 				72ADBDBE2AFCD32300384D34 /* GameViewController.swift in Sources */,
+				7247A0372B0E066500323598 /* GameModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,7 +492,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -525,7 +549,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
