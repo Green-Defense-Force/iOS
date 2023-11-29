@@ -14,6 +14,8 @@
 		7247A0372B0E066500323598 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7247A0362B0E066500323598 /* GameModel.swift */; };
 		7247A0392B0E2BD100323598 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7247A0382B0E2BD100323598 /* GameViewModel.swift */; };
 		726493D92B05A22C002DF331 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726493D82B05A22C002DF331 /* HomeViewController.swift */; };
+		729994DB2B144D500036DA1A /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729994DA2B144D500036DA1A /* CustomTabBarViewController.swift */; };
+		729994DD2B144DAC0036DA1A /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729994DC2B144DAC0036DA1A /* CustomTabBar.swift */; };
 		72ADBD8E2AFCB42C00384D34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBD8D2AFCB42C00384D34 /* AppDelegate.swift */; };
 		72ADBD902AFCB42C00384D34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBD8F2AFCB42C00384D34 /* SceneDelegate.swift */; };
 		72ADBD972AFCB42D00384D34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72ADBD962AFCB42D00384D34 /* Assets.xcassets */; };
@@ -58,6 +60,8 @@
 		7247A0362B0E066500323598 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		7247A0382B0E2BD100323598 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		726493D82B05A22C002DF331 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		729994DA2B144D500036DA1A /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
+		729994DC2B144DAC0036DA1A /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		72ADBD8A2AFCB42C00384D34 /* GreenDefenseForce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenDefenseForce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72ADBD8D2AFCB42C00384D34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72ADBD8F2AFCB42C00384D34 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 				72ADBD8D2AFCB42C00384D34 /* AppDelegate.swift */,
 				72ADBD8F2AFCB42C00384D34 /* SceneDelegate.swift */,
 				72ADBDC72AFDDF9300384D34 /* MainTabBarController.swift */,
+				729994DA2B144D500036DA1A /* CustomTabBarViewController.swift */,
+				729994DC2B144DAC0036DA1A /* CustomTabBar.swift */,
 				72ADBDD42AFDF76C00384D34 /* Challenge */,
 				72ADBDD12AFDF75B00384D34 /* Plogging */,
 				72ADBDD52AFDF77100384D34 /* Game */,
@@ -372,6 +378,7 @@
 				72ADBD8E2AFCB42C00384D34 /* AppDelegate.swift in Sources */,
 				72ADBDCA2AFDF71200384D34 /* ChallengeViewController.swift in Sources */,
 				72ADBDCE2AFDF72E00384D34 /* MyPageViewController.swift in Sources */,
+				729994DB2B144D500036DA1A /* CustomTabBarViewController.swift in Sources */,
 				726493D92B05A22C002DF331 /* HomeViewController.swift in Sources */,
 				72ADBDCC2AFDF71A00384D34 /* StoreViewController.swift in Sources */,
 				72ADBDC82AFDDF9300384D34 /* MainTabBarController.swift in Sources */,
@@ -381,6 +388,7 @@
 				72ADBDD02AFDF75300384D34 /* PloggingViewController.swift in Sources */,
 				72BC41BA2B106F0C00F40F65 /* InventoryViewController.swift in Sources */,
 				72ADBD902AFCB42C00384D34 /* SceneDelegate.swift in Sources */,
+				729994DD2B144DAC0036DA1A /* CustomTabBar.swift in Sources */,
 				72ADBDDF2B01103E00384D34 /* NetworkService.swift in Sources */,
 				720EC7F12B05D07B008C0A1A /* MapViewController.swift in Sources */,
 				72ADBDBE2AFCD32300384D34 /* GameViewController.swift in Sources */,
@@ -484,7 +492,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -541,7 +549,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

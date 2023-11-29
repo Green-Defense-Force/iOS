@@ -7,10 +7,9 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
-    
+class HomeViewController: UIViewController {    
     lazy var background: UIImageView = {
-       let UIImageView = UIImageView(image: UIImage(named: "gameHome"))
+        let UIImageView = UIImageView(image: UIImage(named: "gameHome"))
         UIImageView.translatesAutoresizingMaskIntoConstraints = false
         UIImageView.isUserInteractionEnabled = true
         return UIImageView
@@ -22,7 +21,7 @@ class HomeViewController: UIViewController {
         UIImageView.translatesAutoresizingMaskIntoConstraints = false
         UIImageView.isUserInteractionEnabled = true
         UIImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(goToMyPage)))
-
+        
         return UIImageView
     }()
     
@@ -32,7 +31,7 @@ class HomeViewController: UIViewController {
         UIImageView.translatesAutoresizingMaskIntoConstraints = false
         UIImageView.isUserInteractionEnabled = true
         UIImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(goToStore)))
-
+        
         return UIImageView
     }()
     
@@ -42,7 +41,7 @@ class HomeViewController: UIViewController {
         UIImageView.translatesAutoresizingMaskIntoConstraints = false
         UIImageView.isUserInteractionEnabled = true
         UIImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(goToInventory)))
-
+        
         return UIImageView
     }()
     
@@ -61,14 +60,14 @@ class HomeViewController: UIViewController {
         setUI()
     }
     
-    // 네비게이션 타고 다시 돌아왔을 때 탭바가 보이게
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tabBarController?.tabBar.isHidden = false
-    }
+            super.viewWillAppear(animated)
+            // customTabBar를 다시 표시합니다.
+            CustomTabBarViewController.shared.customTabBar.isHidden = false
+        }
     
     func setUI() {
-        
+        background.contentMode = .scaleAspectFill
         view.addSubview(background)
         NSLayoutConstraint.activate([
             background.topAnchor.constraint(equalTo: view.topAnchor),
@@ -77,6 +76,7 @@ class HomeViewController: UIViewController {
             background.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
         
+        GDF.contentMode = .scaleAspectFit
         view.addSubview(GDF)
         NSLayoutConstraint.activate([
             GDF.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
@@ -85,6 +85,7 @@ class HomeViewController: UIViewController {
             GDF.heightAnchor.constraint(equalToConstant: 75)
         ])
         
+        store.contentMode = .scaleAspectFit
         view.addSubview(store)
         NSLayoutConstraint.activate([
             store.topAnchor.constraint(equalTo: GDF.bottomAnchor, constant: 50),
@@ -93,6 +94,7 @@ class HomeViewController: UIViewController {
             store.heightAnchor.constraint(equalToConstant: 75)
         ])
         
+        inventory.contentMode = .scaleAspectFit
         view.addSubview(inventory)
         NSLayoutConstraint.activate([
             inventory.topAnchor.constraint(equalTo: store.bottomAnchor, constant: 50),
@@ -108,32 +110,33 @@ class HomeViewController: UIViewController {
             myPage.widthAnchor.constraint(equalToConstant: 75),
             myPage.heightAnchor.constraint(equalToConstant: 75)
         ])
-        
-        
     }
     
     @objc func playGameTap() {
         let mapVC = MapViewController()
+        // customTabBar를 숨김
+        CustomTabBarViewController.shared.customTabBar.isHidden = true
         navigationController?.pushViewController(mapVC, animated: false)
-        self.tabBarController?.tabBar.isHidden = true
     }
     
     @objc func goToStore() {
-        let storeVC = StoreViewController()
-        navigationController?.pushViewController(storeVC, animated: false)
-        self.tabBarController?.tabBar.isHidden = true
-    }
-    
-    @objc func goToInventory() {
-        let inventoryVC = InventoryViewController()
-        navigationController?.pushViewController(inventoryVC, animated: false)
-        self.tabBarController?.tabBar.isHidden = true
-    }
-    
-    @objc func goToMyPage() {
-        let myPageVC = MyPageViewController()
-        navigationController?.pushViewController(myPageVC, animated: false)
-        self.tabBarController?.tabBar.isHidden = true
-    }
-    
+           let storeVC = StoreViewController()
+           // customTabBar를 숨김
+           CustomTabBarViewController.shared.customTabBar.isHidden = true
+           navigationController?.pushViewController(storeVC, animated: false)
+       }
+       
+       @objc func goToInventory() {
+           let inventoryVC = InventoryViewController()
+           // customTabBar를 숨김
+           CustomTabBarViewController.shared.customTabBar.isHidden = true
+           navigationController?.pushViewController(inventoryVC, animated: false)
+       }
+       
+       @objc func goToMyPage() {
+           let myPageVC = MyPageViewController()
+           // customTabBar를 숨김
+           CustomTabBarViewController.shared.customTabBar.isHidden = true
+           navigationController?.pushViewController(myPageVC, animated: false)
+       }
 }
