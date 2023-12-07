@@ -75,6 +75,11 @@ class ChallengeViewController: UIViewController, UITableViewDataSource, UITableV
         challengeVM.fetch()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        CustomTabBarViewController.shared.customTabBar.isHidden = false
+    }
+    
     func setUI() {
         stackView.addArrangedSubview(titleView)
         stackView.addArrangedSubview(tableView)
@@ -129,8 +134,8 @@ class ChallengeViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 아이디를 도출했습니다.
-        var challengeId = challengeVM.challengePreview(index: indexPath.section)?.challengeId ?? "실패"
+        // 아이디를 뽑았구요~
+        let challengeId = challengeVM.challengePreview(index: indexPath.section)?.challengeId ?? "실패"
         
         // 아이디를 DetailVC로 넘기기 위해서 Detail에 생성자를 만들고요~ 넘깁니다!
         let challengeDetailVC = ChallengeDetailViewController(challengeId: challengeId)
