@@ -33,7 +33,7 @@ class ChallengeDetailViewController: UIViewController {
         return titleView
     }()
     
-    var titleLabel: UILabel = {
+    lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "제목"
         label.textColor = .white
@@ -45,7 +45,7 @@ class ChallengeDetailViewController: UIViewController {
         return label
     }()
     
-    var rewardLabel: UILabel = {
+    lazy var rewardLabel: UILabel = {
         let label = UILabel()
         label.text = "성공 시, 장"
         label.textColor = .white
@@ -56,7 +56,7 @@ class ChallengeDetailViewController: UIViewController {
     }()
     
     // 컨텐츠 부분
-    lazy var contentView:UIView = {
+    lazy var contentView: UIView = {
         let container = UIView()
         container.backgroundColor = UIColor(red: 82/255, green: 133/255, blue: 31/255, alpha: 1.0)
         return container
@@ -159,6 +159,7 @@ class ChallengeDetailViewController: UIViewController {
         btn.setTitle("뒤로가기", for: .normal)
         btn.setTitleColor(.black, for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(backToChallenge), for: .touchUpInside)
         return btn
     }()
     
@@ -168,6 +169,7 @@ class ChallengeDetailViewController: UIViewController {
         btn.setTitle("촬영하기", for: .normal)
         btn.setTitleColor(.black, for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(goToCamera), for: .touchUpInside)
         return btn
     }()
     
@@ -185,10 +187,12 @@ class ChallengeDetailViewController: UIViewController {
         super.viewDidLoad()
         challengedetailVM.fetch()
         setUI()
+        CustomTabBarViewController.shared.customTabBar.isHidden = true
         print("여기가 말이죠 challengeVC에서 넘어온 ID거든요: \(challengeId)")
     }
     
     func setUI() {
+        
         // 데이터 삽입
         titleLabel.text = challengedetailVM.challengeDetailModel?.challengeTitle ?? "빈 값"
         rewardLabel.text = "성공 시, \(challengedetailVM.challengeDetailModel?.rewardType ?? "티켓") \(challengedetailVM.challengeDetailModel?.rewardCount ?? 0)장"
@@ -238,28 +242,29 @@ class ChallengeDetailViewController: UIViewController {
         imgContainer.addSubview(wrongLabel)
         NSLayoutConstraint.activate([
             contentBox.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30),
-            contentBox.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
-            contentBox.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30),
-            contentBox.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -200),
+            contentBox.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            contentBox.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            contentBox.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -150),
             
             contentText.topAnchor.constraint(equalTo: contentBox.topAnchor, constant: 30),
-            contentText.leadingAnchor.constraint(equalTo: contentBox.leadingAnchor, constant: 30),
+            contentText.leadingAnchor.constraint(equalTo: contentBox.leadingAnchor, constant: 10),
             contentGoal.topAnchor.constraint(equalTo: contentText.bottomAnchor, constant: 20),
-            contentGoal.leadingAnchor.constraint(equalTo: contentBox.leadingAnchor, constant: 30),
+            contentGoal.leadingAnchor.constraint(equalTo: contentBox.leadingAnchor, constant: 10),
+            contentGoal.trailingAnchor.constraint(equalTo: contentBox.trailingAnchor, constant: -10),
             
             imgContainer.topAnchor.constraint(equalTo: contentGoal.bottomAnchor, constant: 50),
             imgContainer.centerXAnchor.constraint(equalTo: contentBox.centerXAnchor),
             rightImg.leadingAnchor.constraint(equalTo: imgContainer.leadingAnchor),
-            rightImg.trailingAnchor.constraint(equalTo: imgContainer.centerXAnchor, constant: -30),
+            rightImg.trailingAnchor.constraint(equalTo: imgContainer.centerXAnchor, constant: -10),
             wrongImg.trailingAnchor.constraint(equalTo: imgContainer.trailingAnchor),
-            wrongImg.leadingAnchor.constraint(equalTo: imgContainer.centerXAnchor, constant: 30),
+            wrongImg.leadingAnchor.constraint(equalTo: imgContainer.centerXAnchor, constant: 10),
             rightLabel.bottomAnchor.constraint(equalTo: rightImg.topAnchor, constant: -10),
             rightLabel.centerXAnchor.constraint(equalTo: rightImg.centerXAnchor),
             wrongLabel.bottomAnchor.constraint(equalTo: wrongImg.topAnchor, constant: -10),
             wrongLabel.centerXAnchor.constraint(equalTo: wrongImg.centerXAnchor),
             
             contentCheckList.topAnchor.constraint(equalTo: imgContainer.bottomAnchor, constant: 150),
-            contentCheckList.leadingAnchor.constraint(equalTo: contentBox.leadingAnchor, constant: 30),
+            contentCheckList.leadingAnchor.constraint(equalTo: contentBox.leadingAnchor, constant: 10),
             contentCheckList.bottomAnchor.constraint(equalTo: contentBox.bottomAnchor, constant: -50)
         ])
         
@@ -268,14 +273,24 @@ class ChallengeDetailViewController: UIViewController {
         btnContainer.addSubview(cameraBtn)
         NSLayoutConstraint.activate([
             btnContainer.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            btnContainer.topAnchor.constraint(equalTo: contentBox.bottomAnchor),
+            btnContainer.topAnchor.constraint(equalTo: contentBox.bottomAnchor, constant: 30),
+            btnContainer.heightAnchor.constraint(equalToConstant: 50),
             
-            backBtn.centerYAnchor.constraint(equalTo: btnContainer.centerYAnchor, constant: 50),
+            backBtn.centerYAnchor.constraint(equalTo: btnContainer.centerYAnchor),
             backBtn.leadingAnchor.constraint(equalTo: btnContainer.leadingAnchor, constant: 50),
             backBtn.trailingAnchor.constraint(equalTo: cameraBtn.leadingAnchor, constant: -30),
             
-            cameraBtn.centerYAnchor.constraint(equalTo: btnContainer.centerYAnchor, constant: 50),
+            cameraBtn.centerYAnchor.constraint(equalTo: btnContainer.centerYAnchor),
             cameraBtn.trailingAnchor.constraint(equalTo: btnContainer.trailingAnchor, constant: -50),
         ])
+    }
+    
+    @objc func backToChallenge() {
+        navigationController?.popViewController(animated: false)
+    }
+    
+    @objc func goToCamera() {
+        let challengeCameraVC = ChallengeCameraViewController(challengedTitle: challengedetailVM.challengeDetailModel?.challengeTitle ?? "빈 값", rewardType: challengedetailVM.challengeDetailModel?.rewardType ?? "빈 값", rewardCount: challengedetailVM.challengeDetailModel?.rewardCount ?? 0)
+        navigationController?.pushViewController(challengeCameraVC, animated: false)
     }
 }
