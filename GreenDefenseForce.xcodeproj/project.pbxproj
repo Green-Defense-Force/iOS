@@ -10,10 +10,17 @@
 		720EC7F12B05D07B008C0A1A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720EC7F02B05D07B008C0A1A /* MapViewController.swift */; };
 		72132C5C2B051A0900BB5420 /* JoyStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72132C5B2B051A0900BB5420 /* JoyStick.swift */; };
 		721C33BA2B09BFFE00708F55 /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721C33B92B09BFFE00708F55 /* PopUp.swift */; };
+		72413D6F2B1707CA00BA5B93 /* ChallengeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72413D6E2B1707CA00BA5B93 /* ChallengeModel.swift */; };
+		72413D712B17095500BA5B93 /* ChallengeDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72413D702B17095500BA5B93 /* ChallengeDetailModel.swift */; };
+		72413D772B1ADB9600BA5B93 /* ChallengeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72413D762B1ADB9600BA5B93 /* ChallengeViewModel.swift */; };
+		72413D792B1AF57600BA5B93 /* ChallengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72413D782B1AF57600BA5B93 /* ChallengeTableViewCell.swift */; };
 		7247A02B2B0B59B900323598 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7247A02A2B0B59B900323598 /* MapModel.swift */; };
 		7247A0372B0E066500323598 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7247A0362B0E066500323598 /* GameModel.swift */; };
 		7247A0392B0E2BD100323598 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7247A0382B0E2BD100323598 /* GameViewModel.swift */; };
 		726493D92B05A22C002DF331 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726493D82B05A22C002DF331 /* HomeViewController.swift */; };
+		7284B18B2B219F0C0023BC57 /* ChallengeCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7284B18A2B219F0C0023BC57 /* ChallengeCameraViewController.swift */; };
+		729635CF2B1C5AB500EC8164 /* ChallengeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729635CE2B1C5AB500EC8164 /* ChallengeDetailViewController.swift */; };
+		729635D12B1C5B3200EC8164 /* ChallengeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729635D02B1C5B3200EC8164 /* ChallengeDetailViewModel.swift */; };
 		729994DB2B144D500036DA1A /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729994DA2B144D500036DA1A /* CustomTabBarViewController.swift */; };
 		729994DD2B144DAC0036DA1A /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729994DC2B144DAC0036DA1A /* CustomTabBar.swift */; };
 		72ADBD8E2AFCB42C00384D34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBD8D2AFCB42C00384D34 /* AppDelegate.swift */; };
@@ -56,10 +63,17 @@
 		720EC7F02B05D07B008C0A1A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		72132C5B2B051A0900BB5420 /* JoyStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyStick.swift; sourceTree = "<group>"; };
 		721C33B92B09BFFE00708F55 /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
+		72413D6E2B1707CA00BA5B93 /* ChallengeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeModel.swift; sourceTree = "<group>"; };
+		72413D702B17095500BA5B93 /* ChallengeDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailModel.swift; sourceTree = "<group>"; };
+		72413D762B1ADB9600BA5B93 /* ChallengeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewModel.swift; sourceTree = "<group>"; };
+		72413D782B1AF57600BA5B93 /* ChallengeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTableViewCell.swift; sourceTree = "<group>"; };
 		7247A02A2B0B59B900323598 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		7247A0362B0E066500323598 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		7247A0382B0E2BD100323598 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		726493D82B05A22C002DF331 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7284B18A2B219F0C0023BC57 /* ChallengeCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCameraViewController.swift; sourceTree = "<group>"; };
+		729635CE2B1C5AB500EC8164 /* ChallengeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewController.swift; sourceTree = "<group>"; };
+		729635D02B1C5B3200EC8164 /* ChallengeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewModel.swift; sourceTree = "<group>"; };
 		729994DA2B144D500036DA1A /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
 		729994DC2B144DAC0036DA1A /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		72ADBD8A2AFCB42C00384D34 /* GreenDefenseForce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenDefenseForce.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +129,8 @@
 			children = (
 				7247A02A2B0B59B900323598 /* MapModel.swift */,
 				7247A0362B0E066500323598 /* GameModel.swift */,
+				72413D6E2B1707CA00BA5B93 /* ChallengeModel.swift */,
+				72413D702B17095500BA5B93 /* ChallengeDetailModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,6 +223,11 @@
 			isa = PBXGroup;
 			children = (
 				72ADBDC92AFDF71200384D34 /* ChallengeViewController.swift */,
+				72413D762B1ADB9600BA5B93 /* ChallengeViewModel.swift */,
+				72413D782B1AF57600BA5B93 /* ChallengeTableViewCell.swift */,
+				729635CE2B1C5AB500EC8164 /* ChallengeDetailViewController.swift */,
+				729635D02B1C5B3200EC8164 /* ChallengeDetailViewModel.swift */,
+				7284B18A2B219F0C0023BC57 /* ChallengeCameraViewController.swift */,
 			);
 			path = Challenge;
 			sourceTree = "<group>";
@@ -372,12 +393,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				729635D12B1C5B3200EC8164 /* ChallengeDetailViewModel.swift in Sources */,
 				7247A0392B0E2BD100323598 /* GameViewModel.swift in Sources */,
+				72413D792B1AF57600BA5B93 /* ChallengeTableViewCell.swift in Sources */,
 				72ADBDD72B008FEA00384D34 /* UIViewController+Extension.swift in Sources */,
 				72ADBDDA2B00C7CD00384D34 /* MapViewModel.swift in Sources */,
 				72ADBD8E2AFCB42C00384D34 /* AppDelegate.swift in Sources */,
 				72ADBDCA2AFDF71200384D34 /* ChallengeViewController.swift in Sources */,
 				72ADBDCE2AFDF72E00384D34 /* MyPageViewController.swift in Sources */,
+				729635CF2B1C5AB500EC8164 /* ChallengeDetailViewController.swift in Sources */,
 				729994DB2B144D500036DA1A /* CustomTabBarViewController.swift in Sources */,
 				726493D92B05A22C002DF331 /* HomeViewController.swift in Sources */,
 				72ADBDCC2AFDF71A00384D34 /* StoreViewController.swift in Sources */,
@@ -386,13 +410,17 @@
 				7247A02B2B0B59B900323598 /* MapModel.swift in Sources */,
 				721C33BA2B09BFFE00708F55 /* PopUp.swift in Sources */,
 				72ADBDD02AFDF75300384D34 /* PloggingViewController.swift in Sources */,
+				7284B18B2B219F0C0023BC57 /* ChallengeCameraViewController.swift in Sources */,
 				72BC41BA2B106F0C00F40F65 /* InventoryViewController.swift in Sources */,
 				72ADBD902AFCB42C00384D34 /* SceneDelegate.swift in Sources */,
 				729994DD2B144DAC0036DA1A /* CustomTabBar.swift in Sources */,
 				72ADBDDF2B01103E00384D34 /* NetworkService.swift in Sources */,
+				72413D712B17095500BA5B93 /* ChallengeDetailModel.swift in Sources */,
 				720EC7F12B05D07B008C0A1A /* MapViewController.swift in Sources */,
+				72413D6F2B1707CA00BA5B93 /* ChallengeModel.swift in Sources */,
 				72ADBDBE2AFCD32300384D34 /* GameViewController.swift in Sources */,
 				7247A0372B0E066500323598 /* GameModel.swift in Sources */,
+				72413D772B1ADB9600BA5B93 /* ChallengeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
