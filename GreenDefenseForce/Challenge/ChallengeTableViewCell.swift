@@ -33,5 +33,21 @@ class ChallengeTableViewCell: UITableViewCell {
     
     func configure(challengePreview: ChallengePreview) {
         textLabel?.text = "\(challengePreview.rewardType)x\(challengePreview.rewardCount): \(challengePreview.challengeTitle)"
+        
+        func configure(challengePreview: ChallengePreview) {
+               textLabel?.text = "\(challengePreview.rewardType)x\(challengePreview.rewardCount): \(challengePreview.challengeTitle)"
+               
+            // 챌린지 진행여부가 false에서 true로 변경시!
+            // 근데 이 부분은 아직 서버가 연결되서 확인할 수 있는 것이 아니라 추후 서버와 연결 후 영구적인 변경으로 되는지 봐야함.
+               if challengePreview.isDone == true {
+                   textLabel?.text = "진행 중"
+                   textLabel?.textColor = .white
+                   textLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+                   textLabel?.backgroundColor = .black.withAlphaComponent(0.6)
+                   // 테두리를 없애거나 조절하려면 아래 두 줄을 사용하세요.
+                   textLabel?.layer.borderWidth = 0
+                   textLabel?.layer.borderColor = UIColor.clear.cgColor
+               }
+           }
     }
 }

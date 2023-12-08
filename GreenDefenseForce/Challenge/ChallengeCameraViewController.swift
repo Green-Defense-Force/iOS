@@ -86,7 +86,7 @@ class ChallengeCameraViewController: UIViewController, AVCapturePhotoCaptureDele
         let btn = UIButton()
         btn.setBackgroundImage(UIImage(named: "challengeCameraControlBtn"), for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.addTarget(self, action: #selector(backToChallengeDetail), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(backToChallenge), for: .touchUpInside)
         return btn
     }()
     
@@ -254,9 +254,76 @@ class ChallengeCameraViewController: UIViewController, AVCapturePhotoCaptureDele
             return
         }
         
-        // 여기에서 캡쳐한 이미지를 처리하세요 (예: 앨범에 저장, 다른 뷰 컨트롤러로 전달 등)
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil) // 사진 앨범에 이미지 저장
+        // 사진 앨범에 이미지를 저장합니다.
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        
+        // 모달창 올리기 위한 컨테이너
+        let imagePreviewViewController = UIViewController()
+        imagePreviewViewController.view.backgroundColor = .black.withAlphaComponent(0.0)
+        imagePreviewViewController.modalPresentationStyle = .formSheet // 팝업 스타일로 표시합니다.
+        imagePreviewViewController.modalTransitionStyle = .crossDissolve
+        imagePreviewViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        // 모달창 부분
+        let modalBg = UIImageView(image: UIImage(named: "cameraModal"))
+        modalBg.translatesAutoresizingMaskIntoConstraints = false
+        modalBg.isUserInteractionEnabled = true
+        imagePreviewViewController.view.addSubview(modalBg)
+        
+        NSLayoutConstraint.activate([
+            modalBg.topAnchor.constraint(equalTo: imagePreviewViewController.view.topAnchor, constant: 80),
+            modalBg.leadingAnchor.constraint(equalTo: imagePreviewViewController.view.leadingAnchor, constant: 30),
+            modalBg.trailingAnchor.constraint(equalTo: imagePreviewViewController.view.trailingAnchor, constant: -30),
+            modalBg.bottomAnchor.constraint(equalTo: imagePreviewViewController.view.bottomAnchor, constant: -80),
+        ])
+        
+        // 모달창 안, 찍힌 사진 올라오는 영역
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFit
+        imageView.center = imagePreviewViewController.view.center
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        modalBg.addSubview(imageView)
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: modalBg.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: modalBg.centerYAnchor, constant: -25),
+            imageView.widthAnchor.constraint(equalTo: modalBg.widthAnchor, multiplier: 0.8),
+            imageView.heightAnchor.constraint(equalTo: modalBg.heightAnchor, multiplier: 0.8)
+        ])
+        
+        let retryBtn = UIButton()
+        retryBtn.setBackgroundImage(UIImage(named: "challengeDetailBtn"), for: .normal)
+        retryBtn.setTitle("재촬영", for: .normal)
+        retryBtn.setTitleColor(.black, for: .normal)
+        retryBtn.translatesAutoresizingMaskIntoConstraints = false
+        retryBtn.addTarget(self, action: #selector(backToCamera), for: .touchUpInside)
+        modalBg.addSubview(retryBtn)
+        NSLayoutConstraint.activate([
+            retryBtn.topAnchor.constraint(equalTo: imageView.bottomAnchor),
+            retryBtn.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
+            retryBtn.heightAnchor.constraint(equalToConstant: 50),
+        ])
+        
+        let okBtn = UIButton()
+        okBtn.setBackgroundImage(UIImage(named: "challengeDetailBtn"), for: .normal)
+        okBtn.setTitle("확인", for: .normal)
+        okBtn.setTitleColor(.black, for: .normal)
+        okBtn.translatesAutoresizingMaskIntoConstraints = false
+        okBtn.addTarget(self, action: #selector(goToChallengeHome), for: .touchUpInside)
+        modalBg.addSubview(okBtn)
+        NSLayoutConstraint.activate([
+            okBtn.topAnchor.constraint(equalTo: imageView.bottomAnchor),
+            okBtn.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
+            okBtn.bottomAnchor.constraint(equalTo: retryBtn.bottomAnchor),
+            okBtn.heightAnchor.constraint(equalTo: retryBtn.heightAnchor)
+            
+        ])
+        
+        // 메인 스레드에서 뷰 컨트롤러를 표시합니다.
+        DispatchQueue.main.async {
+            self.present(imagePreviewViewController, animated: true, completion: nil)
+        }
     }
+
     
     // 사진 찍기
     @objc func capturePhoto() {
@@ -293,7 +360,20 @@ class ChallengeCameraViewController: UIViewController, AVCapturePhotoCaptureDele
         }
     }
     
-    @objc func backToChallengeDetail() {
+    @objc func backToChallenge() {
         navigationController?.popViewController(animated: false)
+    }
+    
+    // 챌린지 팝업 없애기, 카메라 찍는 화면에 유지
+    @objc func backToCamera() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // 챌린지 홈으로 돌아가기
+    @objc func goToChallengeHome() {
+        let challengeVC = ChallengeViewController()
+        navigationController?.pushViewController(challengeVC, animated: false)
+        self.dismiss(animated: true, completion: nil)
+        // 확인 버튼 클릭시 챌린지 여부 false에서 true로 변경
     }
 }

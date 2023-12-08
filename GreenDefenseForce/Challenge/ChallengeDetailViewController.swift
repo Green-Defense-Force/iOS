@@ -290,7 +290,11 @@ class ChallengeDetailViewController: UIViewController {
     }
     
     @objc func goToCamera() {
-        let challengeCameraVC = ChallengeCameraViewController(challengedTitle: challengedetailVM.challengeDetailModel?.challengeTitle ?? "빈 값", rewardType: challengedetailVM.challengeDetailModel?.rewardType ?? "빈 값", rewardCount: challengedetailVM.challengeDetailModel?.rewardCount ?? 0)
+        let challengeCameraVC = ChallengeCameraViewController(
+            challengedTitle: challengedetailVM.challengeDetailModel?.challengeTitle ?? "빈 값",
+            rewardType: challengedetailVM.challengeDetailModel?.rewardType ?? "빈 값",
+            rewardCount: challengedetailVM.challengeDetailModel?.rewardCount ?? 0
+        )
         navigationController?.pushViewController(challengeCameraVC, animated: false)
     }
 }
