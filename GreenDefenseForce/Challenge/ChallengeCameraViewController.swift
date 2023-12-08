@@ -86,6 +86,7 @@ class ChallengeCameraViewController: UIViewController, AVCapturePhotoCaptureDele
         let btn = UIButton()
         btn.setBackgroundImage(UIImage(named: "challengeCameraControlBtn"), for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(backToChallengeDetail), for: .touchUpInside)
         return btn
     }()
     
@@ -113,6 +114,7 @@ class ChallengeCameraViewController: UIViewController, AVCapturePhotoCaptureDele
         let btn = UIButton()
         btn.setImage(UIImage(named: "challengeCameraBtn"), for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(capturePhoto), for: .touchUpInside)
         return btn
     }()
     
@@ -120,6 +122,7 @@ class ChallengeCameraViewController: UIViewController, AVCapturePhotoCaptureDele
         let btn = UIButton()
         btn.setBackgroundImage(UIImage(named: "challengeCameraControlBtn"), for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(toggleFlashlight), for: .touchUpInside)
         return btn
     }()
     
@@ -213,7 +216,7 @@ class ChallengeCameraViewController: UIViewController, AVCapturePhotoCaptureDele
             self.captureSession = AVCaptureSession()
             // captureSession이 nil이 아닌 경우에만 진행합니다.
             guard let captureSession = self.captureSession else { return }
-            
+
             // 입력 디바이스 (카메라)를 설정합니다.
             if let captureDevice = AVCaptureDevice.default(for: .video) {
                 do {
@@ -241,5 +244,56 @@ class ChallengeCameraViewController: UIViewController, AVCapturePhotoCaptureDele
                 }
             }
         }
+    }
+
+    // AVCapturePhotoCaptureDelegate 프로토콜 일부, 카메라가 사진 찍고 자동 호출 -> 찍힌 사진 처리하는 로직임
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        guard let imageData = photo.fileDataRepresentation(),
+              let image = UIImage(data: imageData) else {
+            print("Error capturing photo: \(String(describing: error))")
+            return
+        }
+        
+        // 여기에서 캡쳐한 이미지를 처리하세요 (예: 앨범에 저장, 다른 뷰 컨트롤러로 전달 등)
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil) // 사진 앨범에 이미지 저장
+    }
+    
+    // 사진 찍기
+    @objc func capturePhoto() {
+        let photoOutput = AVCapturePhotoOutput()
+        
+        if let currentPhotoOutput = captureSession?.outputs.first(where: { $0 is AVCapturePhotoOutput }) {
+            captureSession?.removeOutput(currentPhotoOutput)
+        }
+        
+        captureSession?.addOutput(photoOutput)
+        let settings = AVCapturePhotoSettings()
+        photoOutput.capturePhoto(with: settings, delegate: self)
+    }
+    
+    // 라이트 키기
+    @objc func toggleFlashlight() {
+        guard let device = AVCaptureDevice.default(for: .video), device.hasTorch else {
+            print("Device does not support flashlight functionality.")
+            return
+        }
+        
+        do {
+            try device.lockForConfiguration()
+            
+            if device.torchMode == .on {
+                device.torchMode = .off
+            } else {
+                device.torchMode = .on
+            }
+            
+            device.unlockForConfiguration()
+        } catch {
+            print("Error toggling flashlight: \(error.localizedDescription)")
+        }
+    }
+    
+    @objc func backToChallengeDetail() {
+        navigationController?.popViewController(animated: false)
     }
 }
