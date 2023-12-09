@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct PloggingModel {
+    var userId: String
+    var ploggingTime: String
+    var ploggingDistance: Int
+    var trashCount: Int
+}
