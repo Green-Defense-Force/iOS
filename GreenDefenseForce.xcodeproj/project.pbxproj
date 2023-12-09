@@ -10,6 +10,8 @@
 		720EC7F12B05D07B008C0A1A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720EC7F02B05D07B008C0A1A /* MapViewController.swift */; };
 		72132C5C2B051A0900BB5420 /* JoyStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72132C5B2B051A0900BB5420 /* JoyStick.swift */; };
 		721C33BA2B09BFFE00708F55 /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721C33B92B09BFFE00708F55 /* PopUp.swift */; };
+		7221592A2B2416FD00D5383B /* PloggingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722159292B2416FD00D5383B /* PloggingViewModel.swift */; };
+		7221592C2B24170D00D5383B /* PloggingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7221592B2B24170D00D5383B /* PloggingModel.swift */; };
 		72413D6F2B1707CA00BA5B93 /* ChallengeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72413D6E2B1707CA00BA5B93 /* ChallengeModel.swift */; };
 		72413D712B17095500BA5B93 /* ChallengeDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72413D702B17095500BA5B93 /* ChallengeDetailModel.swift */; };
 		72413D772B1ADB9600BA5B93 /* ChallengeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72413D762B1ADB9600BA5B93 /* ChallengeViewModel.swift */; };
@@ -63,6 +65,8 @@
 		720EC7F02B05D07B008C0A1A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		72132C5B2B051A0900BB5420 /* JoyStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyStick.swift; sourceTree = "<group>"; };
 		721C33B92B09BFFE00708F55 /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
+		722159292B2416FD00D5383B /* PloggingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingViewModel.swift; sourceTree = "<group>"; };
+		7221592B2B24170D00D5383B /* PloggingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingModel.swift; sourceTree = "<group>"; };
 		72413D6E2B1707CA00BA5B93 /* ChallengeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeModel.swift; sourceTree = "<group>"; };
 		72413D702B17095500BA5B93 /* ChallengeDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailModel.swift; sourceTree = "<group>"; };
 		72413D762B1ADB9600BA5B93 /* ChallengeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewModel.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 				7247A0362B0E066500323598 /* GameModel.swift */,
 				72413D6E2B1707CA00BA5B93 /* ChallengeModel.swift */,
 				72413D702B17095500BA5B93 /* ChallengeDetailModel.swift */,
+				7221592B2B24170D00D5383B /* PloggingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				72ADBDCF2AFDF75300384D34 /* PloggingViewController.swift */,
+				722159292B2416FD00D5383B /* PloggingViewModel.swift */,
 			);
 			path = Plogging;
 			sourceTree = "<group>";
@@ -400,6 +406,7 @@
 				72ADBDDA2B00C7CD00384D34 /* MapViewModel.swift in Sources */,
 				72ADBD8E2AFCB42C00384D34 /* AppDelegate.swift in Sources */,
 				72ADBDCA2AFDF71200384D34 /* ChallengeViewController.swift in Sources */,
+				7221592A2B2416FD00D5383B /* PloggingViewModel.swift in Sources */,
 				72ADBDCE2AFDF72E00384D34 /* MyPageViewController.swift in Sources */,
 				729635CF2B1C5AB500EC8164 /* ChallengeDetailViewController.swift in Sources */,
 				729994DB2B144D500036DA1A /* CustomTabBarViewController.swift in Sources */,
@@ -414,6 +421,7 @@
 				72BC41BA2B106F0C00F40F65 /* InventoryViewController.swift in Sources */,
 				72ADBD902AFCB42C00384D34 /* SceneDelegate.swift in Sources */,
 				729994DD2B144DAC0036DA1A /* CustomTabBar.swift in Sources */,
+				7221592C2B24170D00D5383B /* PloggingModel.swift in Sources */,
 				72ADBDDF2B01103E00384D34 /* NetworkService.swift in Sources */,
 				72413D712B17095500BA5B93 /* ChallengeDetailModel.swift in Sources */,
 				720EC7F12B05D07B008C0A1A /* MapViewController.swift in Sources */,
