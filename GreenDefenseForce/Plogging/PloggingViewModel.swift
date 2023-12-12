@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+class PloggingViewModel {
+    
+    var ploggingModel: PloggingModel?
+    
+    func fetch() {
+        ploggingModel = PloggingModel(userId: "1", ploggingTime: "", ploggingDistance: 5, trashCount: 1)
+    }
+}
