@@ -23,5 +23,7 @@
     <string>카메라를 사용하여 사진을 찍을 수 있습니다.</string>
     <key>NSPhotoLibraryAddUsageDescription</key>
     <string>앱에서 찍은 사진을 앨범에 저장하기 위해 사용합니다.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>우리 앱에서 위치 정보를 사용합니다. 주변의 장소를 찾기 위해 위치 서비스에 접근할 수 있어야 합니다.</string>
 </dict>
 </plist>
