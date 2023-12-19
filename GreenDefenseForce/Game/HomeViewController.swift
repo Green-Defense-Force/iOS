@@ -120,11 +120,15 @@ class HomeViewController: UIViewController {
     }
     
     @objc func goToStore() {
-           let storeVC = StoreViewController()
-           // customTabBar를 숨김
-           CustomTabBarViewController.shared.customTabBar.isHidden = true
-           navigationController?.pushViewController(storeVC, animated: false)
-       }
+        let storeVC = StoreViewController()
+        
+        // 모달 프레젠테이션 스타일 설정
+        storeVC.modalPresentationStyle = .overFullScreen
+        storeVC.modalTransitionStyle = .crossDissolve
+
+        // 모달 뷰 컨트롤러로 표시
+        self.present(storeVC, animated: true, completion: nil)
+    }
        
        @objc func goToInventory() {
            let inventoryVC = InventoryViewController()
