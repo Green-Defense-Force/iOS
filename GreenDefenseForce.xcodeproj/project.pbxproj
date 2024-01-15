@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		461779E9E8C0897A2EEFFCA3 /* Pods_GreenDefenseForceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104258C286379F9642AF67B9 /* Pods_GreenDefenseForceTests.framework */; };
 		720EC7F12B05D07B008C0A1A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720EC7F02B05D07B008C0A1A /* MapViewController.swift */; };
 		72132C5C2B051A0900BB5420 /* JoyStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72132C5B2B051A0900BB5420 /* JoyStick.swift */; };
 		721C33BA2B09BFFE00708F55 /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721C33B92B09BFFE00708F55 /* PopUp.swift */; };
@@ -23,6 +24,10 @@
 		726493D92B05A22C002DF331 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726493D82B05A22C002DF331 /* HomeViewController.swift */; };
 		7284B18B2B219F0C0023BC57 /* ChallengeCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7284B18A2B219F0C0023BC57 /* ChallengeCameraViewController.swift */; };
 		728B0A9D2B553B8D00062A67 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 728B0A9C2B553B8D00062A67 /* .gitignore */; };
+		728D175F2B553FB2002F9EF3 /* KakaoAuthVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D175E2B553FB2002F9EF3 /* KakaoAuthVM.swift */; };
+		728D17612B553FCA002F9EF3 /* GoogleAuthVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D17602B553FCA002F9EF3 /* GoogleAuthVM.swift */; };
+		728D17632B553FE4002F9EF3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D17622B553FE4002F9EF3 /* LoginViewController.swift */; };
+		728D17652B5540CC002F9EF3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 728D17642B5540CC002F9EF3 /* GoogleService-Info.plist */; };
 		729635CF2B1C5AB500EC8164 /* ChallengeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729635CE2B1C5AB500EC8164 /* ChallengeDetailViewController.swift */; };
 		729635D12B1C5B3200EC8164 /* ChallengeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729635D02B1C5B3200EC8164 /* ChallengeDetailViewModel.swift */; };
 		729994DB2B144D500036DA1A /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729994DA2B144D500036DA1A /* CustomTabBarViewController.swift */; };
@@ -45,6 +50,8 @@
 		72ADBDDF2B01103E00384D34 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDDE2B01103E00384D34 /* NetworkService.swift */; };
 		72BC1CC22B27F1F300B1E924 /* PloggingCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BC1CC12B27F1F300B1E924 /* PloggingCameraViewController.swift */; };
 		72BC41BA2B106F0C00F40F65 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BC41B92B106F0C00F40F65 /* InventoryViewController.swift */; };
+		8E335AB03BA3C804B2753FAC /* Pods_GreenDefenseForce_GreenDefenseForceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BBEE37A40D9B4C0C4909DD /* Pods_GreenDefenseForce_GreenDefenseForceUITests.framework */; };
+		979F0E8FD6440AB61CB8B7B3 /* Pods_GreenDefenseForce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE95331131E9DF3CF1BA80D /* Pods_GreenDefenseForce.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +72,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		104258C286379F9642AF67B9 /* Pods_GreenDefenseForceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreenDefenseForceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35BBEE37A40D9B4C0C4909DD /* Pods_GreenDefenseForce_GreenDefenseForceUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreenDefenseForce_GreenDefenseForceUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		423A5D775CE21CF983E69F07 /* Pods-GreenDefenseForceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenDefenseForceTests.debug.xcconfig"; path = "Target Support Files/Pods-GreenDefenseForceTests/Pods-GreenDefenseForceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6AE95331131E9DF3CF1BA80D /* Pods_GreenDefenseForce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreenDefenseForce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		720EC7F02B05D07B008C0A1A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		72132C5B2B051A0900BB5420 /* JoyStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyStick.swift; sourceTree = "<group>"; };
 		721C33B92B09BFFE00708F55 /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
@@ -81,6 +92,11 @@
 		726493D82B05A22C002DF331 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7284B18A2B219F0C0023BC57 /* ChallengeCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCameraViewController.swift; sourceTree = "<group>"; };
 		728B0A9C2B553B8D00062A67 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		728B0A9E2B553D6800062A67 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		728D175E2B553FB2002F9EF3 /* KakaoAuthVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthVM.swift; sourceTree = "<group>"; };
+		728D17602B553FCA002F9EF3 /* GoogleAuthVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthVM.swift; sourceTree = "<group>"; };
+		728D17622B553FE4002F9EF3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		728D17642B5540CC002F9EF3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		729635CE2B1C5AB500EC8164 /* ChallengeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewController.swift; sourceTree = "<group>"; };
 		729635D02B1C5B3200EC8164 /* ChallengeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewModel.swift; sourceTree = "<group>"; };
 		729994DA2B144D500036DA1A /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +123,11 @@
 		72ADBDDE2B01103E00384D34 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		72BC1CC12B27F1F300B1E924 /* PloggingCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingCameraViewController.swift; sourceTree = "<group>"; };
 		72BC41B92B106F0C00F40F65 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
+		74F4B02119CBCDE60B9A6363 /* Pods-GreenDefenseForce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenDefenseForce.debug.xcconfig"; path = "Target Support Files/Pods-GreenDefenseForce/Pods-GreenDefenseForce.debug.xcconfig"; sourceTree = "<group>"; };
+		7E97C6E0B9F8D339596395C0 /* Pods-GreenDefenseForce-GreenDefenseForceUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenDefenseForce-GreenDefenseForceUITests.release.xcconfig"; path = "Target Support Files/Pods-GreenDefenseForce-GreenDefenseForceUITests/Pods-GreenDefenseForce-GreenDefenseForceUITests.release.xcconfig"; sourceTree = "<group>"; };
+		80F98CCCDCAF5A806EF5E104 /* Pods-GreenDefenseForce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenDefenseForce.release.xcconfig"; path = "Target Support Files/Pods-GreenDefenseForce/Pods-GreenDefenseForce.release.xcconfig"; sourceTree = "<group>"; };
+		9A42BC30017705FDD5F4A6DA /* Pods-GreenDefenseForceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenDefenseForceTests.release.xcconfig"; path = "Target Support Files/Pods-GreenDefenseForceTests/Pods-GreenDefenseForceTests.release.xcconfig"; sourceTree = "<group>"; };
+		F417DE25B8F1B4778D87A50D /* Pods-GreenDefenseForce-GreenDefenseForceUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenDefenseForce-GreenDefenseForceUITests.debug.xcconfig"; path = "Target Support Files/Pods-GreenDefenseForce-GreenDefenseForceUITests/Pods-GreenDefenseForce-GreenDefenseForceUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				979F0E8FD6440AB61CB8B7B3 /* Pods_GreenDefenseForce.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				461779E9E8C0897A2EEFFCA3 /* Pods_GreenDefenseForceTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E335AB03BA3C804B2753FAC /* Pods_GreenDefenseForce_GreenDefenseForceUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +177,8 @@
 				72ADBDA32AFCB42D00384D34 /* GreenDefenseForceTests */,
 				72ADBDAD2AFCB42D00384D34 /* GreenDefenseForceUITests */,
 				72ADBD8B2AFCB42C00384D34 /* Products */,
+				C9A192075058F057F5DA0EE0 /* Pods */,
+				7FCB34D66D92984CD0856F45 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,9 +195,14 @@
 		72ADBD8C2AFCB42C00384D34 /* GreenDefenseForce */ = {
 			isa = PBXGroup;
 			children = (
+				728B0A9E2B553D6800062A67 /* Config.xcconfig */,
+				728D17642B5540CC002F9EF3 /* GoogleService-Info.plist */,
 				728B0A9C2B553B8D00062A67 /* .gitignore */,
 				72ADBD8D2AFCB42C00384D34 /* AppDelegate.swift */,
+				728D175E2B553FB2002F9EF3 /* KakaoAuthVM.swift */,
+				728D17602B553FCA002F9EF3 /* GoogleAuthVM.swift */,
 				72ADBD8F2AFCB42C00384D34 /* SceneDelegate.swift */,
+				728D17622B553FE4002F9EF3 /* LoginViewController.swift */,
 				72ADBDC72AFDDF9300384D34 /* MainTabBarController.swift */,
 				729994DA2B144D500036DA1A /* CustomTabBarViewController.swift */,
 				729994DC2B144DAC0036DA1A /* CustomTabBar.swift */,
@@ -278,6 +309,29 @@
 			path = Inventory;
 			sourceTree = "<group>";
 		};
+		7FCB34D66D92984CD0856F45 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6AE95331131E9DF3CF1BA80D /* Pods_GreenDefenseForce.framework */,
+				35BBEE37A40D9B4C0C4909DD /* Pods_GreenDefenseForce_GreenDefenseForceUITests.framework */,
+				104258C286379F9642AF67B9 /* Pods_GreenDefenseForceTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C9A192075058F057F5DA0EE0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				74F4B02119CBCDE60B9A6363 /* Pods-GreenDefenseForce.debug.xcconfig */,
+				80F98CCCDCAF5A806EF5E104 /* Pods-GreenDefenseForce.release.xcconfig */,
+				F417DE25B8F1B4778D87A50D /* Pods-GreenDefenseForce-GreenDefenseForceUITests.debug.xcconfig */,
+				7E97C6E0B9F8D339596395C0 /* Pods-GreenDefenseForce-GreenDefenseForceUITests.release.xcconfig */,
+				423A5D775CE21CF983E69F07 /* Pods-GreenDefenseForceTests.debug.xcconfig */,
+				9A42BC30017705FDD5F4A6DA /* Pods-GreenDefenseForceTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -285,9 +339,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 72ADBDB42AFCB42D00384D34 /* Build configuration list for PBXNativeTarget "GreenDefenseForce" */;
 			buildPhases = (
+				5A9C424553D0FD902EEF4036 /* [CP] Check Pods Manifest.lock */,
 				72ADBD862AFCB42C00384D34 /* Sources */,
 				72ADBD872AFCB42C00384D34 /* Frameworks */,
 				72ADBD882AFCB42C00384D34 /* Resources */,
+				9E08AC2B2D959A788B9311B8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -302,6 +358,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 72ADBDB72AFCB42D00384D34 /* Build configuration list for PBXNativeTarget "GreenDefenseForceTests" */;
 			buildPhases = (
+				49B9B54C20EB7113EB76E2A7 /* [CP] Check Pods Manifest.lock */,
 				72ADBD9C2AFCB42D00384D34 /* Sources */,
 				72ADBD9D2AFCB42D00384D34 /* Frameworks */,
 				72ADBD9E2AFCB42D00384D34 /* Resources */,
@@ -320,9 +377,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 72ADBDBA2AFCB42D00384D34 /* Build configuration list for PBXNativeTarget "GreenDefenseForceUITests" */;
 			buildPhases = (
+				731CFAF5728CA558D46CCEB8 /* [CP] Check Pods Manifest.lock */,
 				72ADBDA62AFCB42D00384D34 /* Sources */,
 				72ADBDA72AFCB42D00384D34 /* Frameworks */,
 				72ADBDA82AFCB42D00384D34 /* Resources */,
+				B5418592BAD24712EBD12004 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -383,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72ADBD9A2AFCB42D00384D34 /* LaunchScreen.storyboard in Resources */,
+				728D17652B5540CC002F9EF3 /* GoogleService-Info.plist in Resources */,
 				728B0A9D2B553B8D00062A67 /* .gitignore in Resources */,
 				72ADBD972AFCB42D00384D34 /* Assets.xcassets in Resources */,
 			);
@@ -403,6 +463,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		49B9B54C20EB7113EB76E2A7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GreenDefenseForceTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A9C424553D0FD902EEF4036 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GreenDefenseForce-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		731CFAF5728CA558D46CCEB8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GreenDefenseForce-GreenDefenseForceUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E08AC2B2D959A788B9311B8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreenDefenseForce/Pods-GreenDefenseForce-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreenDefenseForce/Pods-GreenDefenseForce-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GreenDefenseForce/Pods-GreenDefenseForce-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5418592BAD24712EBD12004 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreenDefenseForce-GreenDefenseForceUITests/Pods-GreenDefenseForce-GreenDefenseForceUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreenDefenseForce-GreenDefenseForceUITests/Pods-GreenDefenseForce-GreenDefenseForceUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GreenDefenseForce-GreenDefenseForceUITests/Pods-GreenDefenseForce-GreenDefenseForceUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		72ADBD862AFCB42C00384D34 /* Sources */ = {
@@ -425,6 +588,8 @@
 				72ADBDCC2AFDF71A00384D34 /* StoreViewController.swift in Sources */,
 				72ADBDC82AFDDF9300384D34 /* MainTabBarController.swift in Sources */,
 				72132C5C2B051A0900BB5420 /* JoyStick.swift in Sources */,
+				728D175F2B553FB2002F9EF3 /* KakaoAuthVM.swift in Sources */,
+				728D17612B553FCA002F9EF3 /* GoogleAuthVM.swift in Sources */,
 				7247A02B2B0B59B900323598 /* MapModel.swift in Sources */,
 				721C33BA2B09BFFE00708F55 /* PopUp.swift in Sources */,
 				72ADBDD02AFDF75300384D34 /* PloggingViewController.swift in Sources */,
@@ -435,6 +600,7 @@
 				729994DD2B144DAC0036DA1A /* CustomTabBar.swift in Sources */,
 				7221592C2B24170D00D5383B /* PloggingModel.swift in Sources */,
 				72ADBDDF2B01103E00384D34 /* NetworkService.swift in Sources */,
+				728D17632B553FE4002F9EF3 /* LoginViewController.swift in Sources */,
 				72413D712B17095500BA5B93 /* ChallengeDetailModel.swift in Sources */,
 				720EC7F12B05D07B008C0A1A /* MapViewController.swift in Sources */,
 				72413D6F2B1707CA00BA5B93 /* ChallengeModel.swift in Sources */,
@@ -490,6 +656,7 @@
 /* Begin XCBuildConfiguration section */
 		72ADBDB22AFCB42D00384D34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74F4B02119CBCDE60B9A6363 /* Pods-GreenDefenseForce.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -525,7 +692,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -553,6 +720,7 @@
 		};
 		72ADBDB32AFCB42D00384D34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80F98CCCDCAF5A806EF5E104 /* Pods-GreenDefenseForce.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -588,7 +756,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -609,6 +777,7 @@
 		};
 		72ADBDB52AFCB42D00384D34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 728B0A9E2B553D6800062A67 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -617,6 +786,9 @@
 				DEVELOPMENT_TEAM = GKWM8Q6TMS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GreenDefenseForce/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라를 사용하여 사진을 찍을 수 있습니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "우리 앱에서 위치 정보를 사용합니다. 주변의 장소를 찾기 위해 위치 서비스에 접근할 수 있어야 합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "앱에서 찍은 사진을 앨범에 저장하기 위해 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -637,6 +809,7 @@
 		};
 		72ADBDB62AFCB42D00384D34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 728B0A9E2B553D6800062A67 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -645,6 +818,9 @@
 				DEVELOPMENT_TEAM = GKWM8Q6TMS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GreenDefenseForce/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라를 사용하여 사진을 찍을 수 있습니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "우리 앱에서 위치 정보를 사용합니다. 주변의 장소를 찾기 위해 위치 서비스에 접근할 수 있어야 합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "앱에서 찍은 사진을 앨범에 저장하기 위해 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -665,6 +841,7 @@
 		};
 		72ADBDB82AFCB42D00384D34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 423A5D775CE21CF983E69F07 /* Pods-GreenDefenseForceTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -685,6 +862,7 @@
 		};
 		72ADBDB92AFCB42D00384D34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A42BC30017705FDD5F4A6DA /* Pods-GreenDefenseForceTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -705,8 +883,9 @@
 		};
 		72ADBDBB2AFCB42D00384D34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F417DE25B8F1B4778D87A50D /* Pods-GreenDefenseForce-GreenDefenseForceUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GKWM8Q6TMS;
@@ -723,8 +902,9 @@
 		};
 		72ADBDBC2AFCB42D00384D34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E97C6E0B9F8D339596395C0 /* Pods-GreenDefenseForce-GreenDefenseForceUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GKWM8Q6TMS;
