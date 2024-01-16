@@ -15,11 +15,46 @@ import FirebaseAuth
 import GoogleSignIn
 
 class LoginViewController: UIViewController {
-    lazy var btnContainer: UIStackView = {
+    let loginLogo: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "loginLogo")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        
+        let logoTitle: UILabel = {
+            let label = UILabel()
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.text = "도전! 환경 지킴 방범대"
+            label.font = .systemFont(ofSize: 30, weight: .bold)
+            return label
+        }()
+        
+        let loginLabel: UILabel = {
+            let label = UILabel()
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.text = "소셜 로그인"
+            label.font = .systemFont(ofSize: 20, weight: .medium)
+            return label
+        }()
+        
+        image.addSubview(logoTitle)
+        image.addSubview(loginLabel)
+        NSLayoutConstraint.activate([
+            logoTitle.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 30),
+            logoTitle.centerXAnchor.constraint(equalTo: image.centerXAnchor),
+            loginLabel.topAnchor.constraint(equalTo: logoTitle.bottomAnchor, constant: 50),
+            loginLabel.centerXAnchor.constraint(equalTo: logoTitle.centerXAnchor)
+        ])
+        return image
+    }()
+    
+   
+    
+    let btnContainer: UIStackView = {
         let stackView = UIStackView()
-        stackView.spacing = 10
+        stackView.spacing = 20
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.contentMode = .scaleAspectFit
         return stackView
     }()
    
@@ -39,14 +74,6 @@ class LoginViewController: UIViewController {
             return vm
         }()
     
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 30, weight: .bold)
-        label.text = "Green Defense Force"
-        return label
-    }()
-    
     lazy var kakaoLoginBtn: UIButton = {
         let button = UIButton()
         button.setBackgroundImage(UIImage(named: "kakaoLogin"), for: .normal)
@@ -56,8 +83,9 @@ class LoginViewController: UIViewController {
     }()
     
     
-    lazy var googleLoginBtn: GIDSignInButton = {
-        let button = GIDSignInButton()
+    lazy var googleLoginBtn: UIButton = {
+        let button = UIButton()
+        button.setBackgroundImage(UIImage(named: "googleLogin"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(googleLoginBtnClicked), for: .touchUpInside)
         return button
@@ -73,13 +101,17 @@ class LoginViewController: UIViewController {
     
     private func setUI() {
         view.backgroundColor = .white
+        view.addSubview(loginLogo)
         view.addSubview(btnContainer)
+        
         btnContainer.addArrangedSubview(kakaoLoginBtn)
         btnContainer.addArrangedSubview(googleLoginBtn)
-       
+        
         NSLayoutConstraint.activate([
-            btnContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            btnContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            loginLogo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loginLogo.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -200),
+            btnContainer.topAnchor.constraint(equalTo: loginLogo.bottomAnchor, constant: 200),
+            btnContainer.centerXAnchor.constraint(equalTo: loginLogo.centerXAnchor)
         ])
     }
     
