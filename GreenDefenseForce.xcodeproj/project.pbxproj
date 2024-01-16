@@ -199,10 +199,8 @@
 				728D17642B5540CC002F9EF3 /* GoogleService-Info.plist */,
 				728B0A9C2B553B8D00062A67 /* .gitignore */,
 				72ADBD8D2AFCB42C00384D34 /* AppDelegate.swift */,
-				728D175E2B553FB2002F9EF3 /* KakaoAuthVM.swift */,
-				728D17602B553FCA002F9EF3 /* GoogleAuthVM.swift */,
 				72ADBD8F2AFCB42C00384D34 /* SceneDelegate.swift */,
-				728D17622B553FE4002F9EF3 /* LoginViewController.swift */,
+				72D4C01F2B56849E00B1F8E5 /* Login */,
 				72ADBDC72AFDDF9300384D34 /* MainTabBarController.swift */,
 				729994DA2B144D500036DA1A /* CustomTabBarViewController.swift */,
 				729994DC2B144DAC0036DA1A /* CustomTabBar.swift */,
@@ -307,6 +305,16 @@
 				72BC41B92B106F0C00F40F65 /* InventoryViewController.swift */,
 			);
 			path = Inventory;
+			sourceTree = "<group>";
+		};
+		72D4C01F2B56849E00B1F8E5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				728D17622B553FE4002F9EF3 /* LoginViewController.swift */,
+				728D175E2B553FB2002F9EF3 /* KakaoAuthVM.swift */,
+				728D17602B553FCA002F9EF3 /* GoogleAuthVM.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		7FCB34D66D92984CD0856F45 /* Frameworks */ = {
