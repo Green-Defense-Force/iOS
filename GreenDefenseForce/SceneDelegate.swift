@@ -21,8 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         let mainVC = CustomTabBarViewController()
       
+        // 여긴 이미 로그인 되어있는 사용자일 때 자동으로 홈으로 진입 || 완전 초기에 로그인 이력이 없을 때 로그인 화면으로
         if Auth.auth().currentUser != nil {
-           
             window?.rootViewController = mainVC
             print("이미 구글 로그인에 성공하였습니다.")
             
@@ -58,5 +58,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
         }
     }
+    
+    func changeRootViewController(to viewController: UIViewController, animated: Bool = true) {
+            if animated {
+                UIView.transition(with: window!, duration: 0.5, options: .transitionCrossDissolve, animations: {
+                    self.window?.rootViewController = viewController
+                }, completion: nil)
+            } else {
+                window?.rootViewController = viewController
+            }
+        }
 }
 

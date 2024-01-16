@@ -22,22 +22,23 @@ class LoginViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-    lazy var kakaoStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        return stackView
-    }()
-    lazy var googleStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        return stackView
-    }()
+   
     lazy var kakaoAuthVM: KakaoAuthVM = {
-        KakaoAuthVM()
-    }()
-    lazy var googleAuthVM: GoogleAuthVM = {
-        GoogleAuthVM()
-    }()
+            let vm = KakaoAuthVM()
+            vm.onLoginSuccess = {
+                self.switchToMainScreen()
+            }
+            return vm
+        }()
+        
+        lazy var googleAuthVM: GoogleAuthVM = {
+            let vm = GoogleAuthVM()
+            vm.onLoginSuccess = {
+                self.switchToMainScreen()
+            }
+            return vm
+        }()
+    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -45,6 +46,7 @@ class LoginViewController: UIViewController {
         label.text = "Green Defense Force"
         return label
     }()
+    
     lazy var kakaoLoginBtn: UIButton = {
         let button = UIButton()
         button.setBackgroundImage(UIImage(named: "kakaoLogin"), for: .normal)
@@ -53,14 +55,6 @@ class LoginViewController: UIViewController {
         return button
     }()
     
-    lazy var kakaoLogoutBtn: UIButton = {
-        let button = UIButton()
-        button.setTitle("카카오 로그아웃", for: .normal)
-        button.configuration = .borderedTinted()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(kakaoLogoutBtnClicked), for: .touchUpInside)
-        return button
-    }()
     
     lazy var googleLoginBtn: GIDSignInButton = {
         let button = GIDSignInButton()
@@ -69,64 +63,40 @@ class LoginViewController: UIViewController {
         return button
     }()
     
-    lazy var googleLogoutBtn: UIButton = {
-        let button = UIButton()
-        button.setTitle("구글 로그아웃", for: .normal)
-        button.configuration = .borderedTinted()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(googleLogoutBtnClicked), for: .touchUpInside)
-        return button
-    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        setLoginHandler()
+        
     }
     
     private func setUI() {
         view.backgroundColor = .white
         view.addSubview(btnContainer)
-        btnContainer.addArrangedSubview(kakaoStackView)
-        btnContainer.addArrangedSubview(googleStackView)
-        kakaoStackView.addArrangedSubview(kakaoLoginBtn)
-        kakaoStackView.addArrangedSubview(kakaoLogoutBtn)
-        googleStackView.addArrangedSubview(googleLoginBtn)
-        googleStackView.addArrangedSubview(googleLogoutBtn)
-        
+        btnContainer.addArrangedSubview(kakaoLoginBtn)
+        btnContainer.addArrangedSubview(googleLoginBtn)
+       
         NSLayoutConstraint.activate([
             btnContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             btnContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
     
-    private func setLoginHandler() {
-        googleAuthVM.onLoginSuccess = { [weak self] in
-            let customVC = CustomTabBarViewController()
-            self?.navigationController?.pushViewController(customVC, animated: true)
+    private func switchToMainScreen() {
+            if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
+                let mainVC = CustomTabBarViewController()
+                sceneDelegate.changeRootViewController(to: mainVC, animated: true)
+            }
         }
-        
-        kakaoAuthVM.onLoginSuccess = { [weak self] in
-                let customVC = CustomTabBarViewController()
-                self?.navigationController?.pushViewController(customVC, animated: true)
-        }
-    }
     
     @objc func kakaoLoginBtnClicked() {
         print("로그인 버튼 클릭")
         kakaoAuthVM.handleKakaoLogin()
     }
     
-    @objc func kakaoLogoutBtnClicked() {
-        print("로그아웃 버튼 클릭")
-        kakaoAuthVM.handleKakaoLogout()
-    }
     
     @objc func googleLoginBtnClicked() {
         googleAuthVM.googleLogin(presentingViewController: self)
-    }
-    
-    @objc func googleLogoutBtnClicked() {
-        googleAuthVM.googleLogout()
     }
 }

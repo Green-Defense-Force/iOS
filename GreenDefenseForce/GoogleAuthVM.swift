@@ -12,7 +12,8 @@ import GoogleSignIn
 class GoogleAuthVM {
     
     var onLoginSuccess: (() -> Void)?
-    
+    var onLogoutSuccess: (() -> Void)?
+
     init() {
         print("googleVM init")
     }
@@ -36,6 +37,7 @@ class GoogleAuthVM {
                     return
                 } else {
                     print("구글 로그인에 성공했습니다.")
+                    self?.onLoginSuccess?()
                 }
             }
         }
@@ -57,6 +59,7 @@ class GoogleAuthVM {
         do {
             print("google Logout")
             try firebaseAuth.signOut()
+            self.onLogoutSuccess?()
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
         }

@@ -11,6 +11,7 @@ import KakaoSDKUser
 
 class KakaoAuthVM {
     var onLoginSuccess: (() -> Void)?
+    var onLogoutSuccess: (() -> Void)?
     
     init() {
         print("kakaoVM init")
@@ -54,7 +55,7 @@ class KakaoAuthVM {
                     print("loginWithKakaoAccount() success.")
                     //do something
                     _ = oauthToken
-                    self.onLoginSuccess?()
+                    
                     // 유저 정보 가져오기
                     UserApi.shared.me() {(user, error) in
                         if let error = error {
@@ -65,18 +66,20 @@ class KakaoAuthVM {
                             print("유저 이메일:", user?.kakaoAccount?.email ?? "유저 이메일이 없습니다.")
                         }
                     }
+                    self.onLoginSuccess?()
                 }
             }
         }
     }
     
     func handleKakaoLogout() {
-        UserApi.shared.logout {(error) in
+        UserApi.shared.logout { error in
             if let error = error {
                 print(error)
             }
             else {
                 print("logout() success.")
+                self.onLogoutSuccess?()
             }
         }
     }
