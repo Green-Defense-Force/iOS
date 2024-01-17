@@ -1,0 +1,6 @@
+framework module Pods_GreenDefenseForce {
+  umbrella header "Pods-GreenDefenseForce-umbrella.h"
+
+  export *
+  module * { export * }
+}

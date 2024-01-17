@@ -2,6 +2,36 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>KAKAO_API_KEY</key>
+	<string>${KAKAO_API_KEY}</string>
+	<key>GID_CLIENT_ID</key>
+	<string>${GID_CLIENT_ID}</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>${REVERSED_CLIENT_ID}</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>kakaokompassauth</string>
+		<string>kakaolink</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>kakao${KAKAO_API_KEY}</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>${REVERSED_CLIENT_ID}</string>
+			</array>
+		</dict>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -19,11 +49,5 @@
 			</array>
 		</dict>
 	</dict>
-    <key>NSCameraUsageDescription</key>
-    <string>카메라를 사용하여 사진을 찍을 수 있습니다.</string>
-    <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>앱에서 찍은 사진을 앨범에 저장하기 위해 사용합니다.</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>우리 앱에서 위치 정보를 사용합니다. 주변의 장소를 찾기 위해 위치 서비스에 접근할 수 있어야 합니다.</string>
 </dict>
 </plist>
