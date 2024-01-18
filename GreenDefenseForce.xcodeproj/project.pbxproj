@@ -50,6 +50,8 @@
 		72ADBDDF2B01103E00384D34 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADBDDE2B01103E00384D34 /* NetworkService.swift */; };
 		72BC1CC22B27F1F300B1E924 /* PloggingCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BC1CC12B27F1F300B1E924 /* PloggingCameraViewController.swift */; };
 		72BC41BA2B106F0C00F40F65 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BC41B92B106F0C00F40F65 /* InventoryViewController.swift */; };
+		72D4C0212B57E2D600B1F8E5 /* StoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D4C0202B57E2D600B1F8E5 /* StoreModel.swift */; };
+		72D4C0252B57E6BA00B1F8E5 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D4C0242B57E6BA00B1F8E5 /* Network.swift */; };
 		8E335AB03BA3C804B2753FAC /* Pods_GreenDefenseForce_GreenDefenseForceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BBEE37A40D9B4C0C4909DD /* Pods_GreenDefenseForce_GreenDefenseForceUITests.framework */; };
 		979F0E8FD6440AB61CB8B7B3 /* Pods_GreenDefenseForce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE95331131E9DF3CF1BA80D /* Pods_GreenDefenseForce.framework */; };
 /* End PBXBuildFile section */
@@ -123,6 +125,8 @@
 		72ADBDDE2B01103E00384D34 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		72BC1CC12B27F1F300B1E924 /* PloggingCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingCameraViewController.swift; sourceTree = "<group>"; };
 		72BC41B92B106F0C00F40F65 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
+		72D4C0202B57E2D600B1F8E5 /* StoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreModel.swift; sourceTree = "<group>"; };
+		72D4C0242B57E6BA00B1F8E5 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		74F4B02119CBCDE60B9A6363 /* Pods-GreenDefenseForce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenDefenseForce.debug.xcconfig"; path = "Target Support Files/Pods-GreenDefenseForce/Pods-GreenDefenseForce.debug.xcconfig"; sourceTree = "<group>"; };
 		7E97C6E0B9F8D339596395C0 /* Pods-GreenDefenseForce-GreenDefenseForceUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenDefenseForce-GreenDefenseForceUITests.release.xcconfig"; path = "Target Support Files/Pods-GreenDefenseForce-GreenDefenseForceUITests/Pods-GreenDefenseForce-GreenDefenseForceUITests.release.xcconfig"; sourceTree = "<group>"; };
 		80F98CCCDCAF5A806EF5E104 /* Pods-GreenDefenseForce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenDefenseForce.release.xcconfig"; path = "Target Support Files/Pods-GreenDefenseForce/Pods-GreenDefenseForce.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 				72413D6E2B1707CA00BA5B93 /* ChallengeModel.swift */,
 				72413D702B17095500BA5B93 /* ChallengeDetailModel.swift */,
 				7221592B2B24170D00D5383B /* PloggingModel.swift */,
+				72D4C0202B57E2D600B1F8E5 /* StoreModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -211,7 +216,7 @@
 				72BC41BB2B106F1000F40F65 /* Inventory */,
 				72ADBDD32AFDF76600384D34 /* Store */,
 				72ADBDD22AFDF76200384D34 /* MyPage */,
-				72ADBDD82B0090F200384D34 /* Util */,
+				72ADBDD82B0090F200384D34 /* Repository */,
 				72ADBD962AFCB42D00384D34 /* Assets.xcassets */,
 				72ADBD982AFCB42D00384D34 /* LaunchScreen.storyboard */,
 				72ADBD9B2AFCB42D00384D34 /* Info.plist */,
@@ -290,13 +295,14 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
-		72ADBDD82B0090F200384D34 /* Util */ = {
+		72ADBDD82B0090F200384D34 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
 				72ADBDD62B008FEA00384D34 /* UIViewController+Extension.swift */,
 				72ADBDDE2B01103E00384D34 /* NetworkService.swift */,
+				72D4C0242B57E6BA00B1F8E5 /* Network.swift */,
 			);
-			path = Util;
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		72BC41BB2B106F1000F40F65 /* Inventory */ = {
@@ -580,6 +586,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72D4C0252B57E6BA00B1F8E5 /* Network.swift in Sources */,
 				729635D12B1C5B3200EC8164 /* ChallengeDetailViewModel.swift in Sources */,
 				7247A0392B0E2BD100323598 /* GameViewModel.swift in Sources */,
 				72413D792B1AF57600BA5B93 /* ChallengeTableViewCell.swift in Sources */,
@@ -609,6 +616,7 @@
 				7221592C2B24170D00D5383B /* PloggingModel.swift in Sources */,
 				72ADBDDF2B01103E00384D34 /* NetworkService.swift in Sources */,
 				728D17632B553FE4002F9EF3 /* LoginViewController.swift in Sources */,
+				72D4C0212B57E2D600B1F8E5 /* StoreModel.swift in Sources */,
 				72413D712B17095500BA5B93 /* ChallengeDetailModel.swift in Sources */,
 				720EC7F12B05D07B008C0A1A /* MapViewController.swift in Sources */,
 				72413D6F2B1707CA00BA5B93 /* ChallengeModel.swift in Sources */,

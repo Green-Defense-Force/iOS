@@ -839,6 +839,11 @@ PODS:
   - PinLayout (1.10.5)
   - PromisesObjC (2.3.1)
   - RecaptchaInterop (100.0.0)
+  - RxAlamofire (6.1.1):
+    - RxAlamofire/Core (= 6.1.1)
+  - RxAlamofire/Core (6.1.1):
+    - Alamofire (~> 5.4)
+    - RxSwift (~> 6.0)
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
@@ -847,7 +852,6 @@ PODS:
   - RxSwift (6.5.0)
 
 DEPENDENCIES:
-  - Alamofire
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Core
@@ -858,6 +862,7 @@ DEPENDENCIES:
   - KakaoSDKCommon
   - KakaoSDKUser
   - PinLayout
+  - RxAlamofire
   - RxCocoa (~> 6.5.0)
   - RxSwift (~> 6.5.0)
 
@@ -894,6 +899,7 @@ SPEC REPOS:
     - PinLayout
     - PromisesObjC
     - RecaptchaInterop
+    - RxAlamofire
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -930,10 +936,11 @@ SPEC CHECKSUMS:
   PinLayout: f6c2b63a5a5b24864064e1d15c67de41b4e74748
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
+  RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
 
-PODFILE CHECKSUM: 0c7b542a7a261f7675112f37a2a8c7df691a7a59
+PODFILE CHECKSUM: b4c16dc3da18364b586562272a03cc46e9c19985
 
 COCOAPODS: 1.14.3

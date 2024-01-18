@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import PinLayout
+import FlexLayout
+import RxSwift
 
 class StoreViewController: UIViewController {
     
@@ -37,6 +40,7 @@ class StoreViewController: UIViewController {
     lazy var closeBtn: UIButton = {
         let btn = UIButton()
         btn.setBackgroundImage(UIImage(named: "storeCloseBtn"), for: .normal)
+        btn.addTarget(self, action: #selector(closeStoreBtn), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -123,7 +127,6 @@ class StoreViewController: UIViewController {
     
     func setUI() {
         view.backgroundColor = .clear
-        
         // 전체 박스
         view.addSubview(containerView)
         NSLayoutConstraint.activate([
@@ -247,5 +250,9 @@ class StoreViewController: UIViewController {
                 button.setBackgroundImage(nil, for: .normal)
             }
         }
+    }
+    
+    @objc func closeStoreBtn() {
+       dismiss(animated: true)
     }
 }
