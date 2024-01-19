@@ -38,6 +38,7 @@ class StoreViewController: UIViewController {
         let btn = UIButton()
         btn.setBackgroundImage(UIImage(named: "storeCloseBtn"), for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(closeTapped), for: .touchUpInside)
         return btn
     }()
     
@@ -247,5 +248,9 @@ class StoreViewController: UIViewController {
                 button.setBackgroundImage(nil, for: .normal)
             }
         }
+    }
+    
+    @objc func closeTapped() {
+        dismiss(animated: true)
     }
 }
