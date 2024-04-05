@@ -6,7 +6,6 @@ UIKit
 ## 개발 중..
 
 ## 관련 블로그 포스팅
-https://blog.naver.com/ggmj-
-https://blog.naver.com/ggmj-/223291594260
-https://blog.naver.com/ggmj-/223286639763
-https://blog.naver.com/ggmj-/223263503322
+https://blog.naver.com/ggmj-/223291594260<br/>
+https://blog.naver.com/ggmj-/223286639763<br/>
+https://blog.naver.com/ggmj-/223263503322<br/>
